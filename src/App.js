@@ -1,4 +1,4 @@
-import { BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter} from 'react-router-dom';
 
 import './App.css';
 
@@ -9,13 +9,11 @@ import Footer from './components/Footer/Footer';
 function App() {
   return (
     <BrowserRouter>
-      <Route render={props => {
-        <div>
-          <Header />
-          <AppRoutes />
-          <Footer />
-        </div>
-      }} />
+      <>
+        <Header />
+        <AppRoutes />
+        <Footer />
+      </>
     </BrowserRouter>
   );
 }

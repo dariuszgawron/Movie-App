@@ -1,11 +1,13 @@
 import React from "react";
 
-const Details = () => {
+import './Modal.css';
+
+const Modal = () => {
     return (
         <div>
-            Details
+
         </div>
     )
 };
 
-export default Details;
+export Modal;
