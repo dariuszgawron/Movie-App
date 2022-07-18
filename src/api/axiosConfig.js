@@ -5,7 +5,10 @@ import tmdbConfig from './tmdbConfig';
 
 const axiosConfig = axios.create({
     baseURL: tmdbConfig.baseApiUrl,
-    paramsSerializer: params => queryString.stringify({...params, api_key: tmdbConfig.apiKey})
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    paramsSerializer: (params) => queryString.stringify({...params, api_key: tmdbConfig.apiKey})
 });
 
 axiosConfig.interceptors.request.use(config => config);

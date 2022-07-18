@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+import MediaSwiper from '../components/MediaSwiper/MediaSwiper';
+
 const Home = () => {
     return (
         <main className='main'>
@@ -11,10 +13,11 @@ const Home = () => {
                         <h2 className='section__title'>
                             Popular movies
                         </h2>
-                        <link to='/movie'>
+                        <Link to='/movie'>
                             View more
-                        </link>
+                        </Link>
                     </div>
+                    <MediaSwiper type='movie' category='popular'/>
                 </div>
             </div>
         </main>
