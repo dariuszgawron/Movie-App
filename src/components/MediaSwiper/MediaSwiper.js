@@ -15,36 +15,10 @@ const MediaSwiper = props => {
             let response = null;
             const queryParams = {};
 
-            if(props.type === 'movie') {
-                switch(props.category) {
-                    case 'popular':
-                        response = await tmdbApi.getPopularMovies({queryParams});
-                        break;
-                    case 'topRated':
-                        response = await tmdbApi.getTopRatedMovies({queryParams});
-                        break;
-                    case 'upcoming':
-                        response = await tmdbApi.getUpcomingMovies({queryParams});
-                        break;
-                    default:
-                        response = await tmdbApi.getSimilarMovies(props.id);
-                        break;
-                }
+            if(props.mediaCategory !== 'similar') {
+                response = await tmdbApi.getMediaList(props.mediaType,props.mediaCategory, {queryParams});
             } else {
-                switch(props.category) {
-                    case 'popular':
-                        response = await tmdbApi.getPopularTvShows({queryParams});
-                        break;
-                    case 'topRated':
-                        response = await tmdbApi.getTopRatedTvShows({queryParams});
-                        break;
-                    case 'onTheAir':
-                        response = await tmdbApi.getOnTheAirTvShows({queryParams});
-                        break;
-                    default:
-                        response = await tmdbApi.getSimilarTvShows(props.id);
-                        break;
-                }
+                response = await tmdbApi.getSimilarMedia(props.mediaType, props.mediaId);
             };
 
             setMedias(response.results);

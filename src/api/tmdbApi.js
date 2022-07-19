@@ -1,62 +1,55 @@
 import axiosConfig from './axiosConfig';
 
-const tmdbApi = {
-    // MOVIES
-    getPopularMovies: (params) => {
-        return axiosConfig.get('movie/popular',params);
-    },
-    getTopRatedMovies: (params) => {
-        return axiosConfig.get('movie/top_rated',params);
-    },
-    getUpcomingMovies: (params) => {
-        return axiosConfig.get('movie/upcoming',params);
-    },
-    getMovieDetails: (id,params) => {
-        return axiosConfig.get(`movie/${id}`,params);
-    },
-    getMovieCredits: (id,params) => {
-        return axiosConfig.get(`movie/${id}/credits`,params);
-    },
-    getMovieImages: (id,params) => {
-        return axiosConfig.get(`movie/${id}/images`,params);
-    },
-    getMovieVideos: (id,params) => {
-        return axiosConfig.get(`movie/${id}/videos`,params);
-    },
-    getSimilarMovies: (id,params) => {
-        return axiosConfig.get(`movie/${id}/similar`,params);
-    },
-    searchMovies: (params) => {
-        return axiosConfig.get('search/movie',params);
-    },
+export const mediaTypes = {
+    'movie': 'movie',
+    'tv': 'tv'
+};
 
-    // TV SHOWS
-    getPopularTvShows: (params) => {
-        return axiosConfig.get('tv/popular',params);
+export const movieCategories = {
+    'popular': 'popular',
+    'top_rated': 'top_rated',
+    'upcoming': 'upcoming',
+    'latest': 'latest',
+    'now_playing': 'now_playing'
+};
+
+export const tvCategories = {
+    'popular': 'popular',
+    'top_rated': 'top_rated',
+    'on_the_air': 'on_the_air',
+    'latest': 'latest',
+    'airing_today': 'airing_today'
+};
+
+const tmdbApi = {
+    getMediaList: (mediaType,mediaCategory,queryParams) => {
+        const category = (mediaType==='movie' ? movieCategories[mediaCategory] : tvCategories[mediaCategory]);
+        const url = `${mediaTypes[mediaType]}/${category}`;
+        return axiosConfig.get(url, queryParams);
     },
-    getTopRatedTvShows: (params) => {
-        return axiosConfig.get('tv/top_rated',params);
+    getMediaVideos: (mediaType,mediaId) => {
+        const url = `${mediaTypes[mediaType]}/${mediaId}/videos`;
+        return axiosConfig.get(url, {params: {}});
     },
-    getOnTheAirTvShows: (params) => {
-        return axiosConfig.get('tv/on_the_air',params);
+    getMediaImages: (mediaType, mediaId) => {
+        const url = `${mediaTypes[mediaType]}/${mediaId}/images`;
+        return axiosConfig.get(url, {params: {}});
     },
-    getTvShowDetails: (id,params) => {
-        return axiosConfig.get(`tv/${id}`,params);
+    searchMedia: (mediaType, queryParams) => {
+        const url = `search/${mediaTypes[mediaType]}`;
+        return axiosConfig.get(url, queryParams);
     },
-    getTvShowCredits: (id,params) => {
-        return axiosConfig.get(`tv/${id}/credits`,params);
+    getMediaDetails: (mediaType, mediaId, queryParams) => {
+        const url = `${mediaTypes[mediaType]}/${mediaId}`;
+        return axiosConfig.get(url, queryParams);
     },
-    getTvShowImages: (id,params) => {
-        return axiosConfig.get(`tv/${id}/images`,params);
+    getMediaCredits: (mediaType, mediaId) => {
+        const url = `${mediaTypes[mediaType]}/${mediaId}/credits`;
+        return axiosConfig.get(url, {params: {}});
     },
-    getTvShowVideos: (id,params) => {
-        return axiosConfig.get(`tv/${id}/videos`,params);
-    },
-    getSimilarTvShows: (id,params) => {
-        return axiosConfig.get(`tv/${id}/similar`,params);
-    },
-    searchTvShows: (params) => {
-        return axiosConfig.get('search/tv',params);
+    getSimilarMedia: (mediaType, mediaId) => {
+        const url = `${mediaTypes[mediaType]}/${mediaId}/similar`;
+        return axiosConfig.get(url, {params: {}});
     }
 }
 
