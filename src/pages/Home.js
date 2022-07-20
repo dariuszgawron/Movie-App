@@ -17,7 +17,7 @@ const Home = () => {
                             View more
                         </Link>
                     </div>
-                    <MediaSwiper type='movie' category='popular'/>
+                    <MediaSwiper mediaType='movie' mediaCategory='popular'/>
                 </div>
             </div>
         </main>

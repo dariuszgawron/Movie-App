@@ -6,9 +6,10 @@ import tmdbApi from '../../api/tmdbApi';
 import axiosConfig from '../../api/axiosConfig';
 
 import './MediaSwiper.css';
+import tmdbConfig, {imageSize} from '../../api/tmdbConfig';
 
 const MediaSwiper = props => {
-    const [medias, setMedias] = useState([]);
+    const [media, setMedia] = useState([]);
 
     useEffect(() => {
         const getMedias = async () => {
@@ -21,7 +22,7 @@ const MediaSwiper = props => {
                 response = await tmdbApi.getSimilarMedia(props.mediaType, props.mediaId);
             };
 
-            setMedias(response.results);
+            setMedia(response.results);
         };
         getMedias();
 
@@ -30,9 +31,9 @@ const MediaSwiper = props => {
     return (
         <div className='media-swiper'>
             {
-                medias.map((media,index) => (
-                    <div>
-                        'test'
+                media.map((media,index) => (
+                    <div key={index}>
+                        <img src={tmdbConfig.imageUrl(imageSize.w500,media.poster_path)} alt='' />
                     </div>
                 ))
             }
@@ -41,8 +42,8 @@ const MediaSwiper = props => {
 };
 
 MediaSwiper.propTypes = {
-    type: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired
+    mediaType: PropTypes.string.isRequired,
+    mediaCategory: PropTypes.string.isRequired
 }
 
 export default MediaSwiper;
