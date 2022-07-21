@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import tmdbApi from '../../api/tmdbApi';
-import axiosConfig from '../../api/axiosConfig';
+// import axiosConfig from '../../api/axiosConfig';
+import tmdbConfig, {imageSize} from '../../api/tmdbConfig';
+
+import MediaCard from '../MediaCard/MediaCard';
 
 import './MediaSwiper.css';
-import tmdbConfig, {imageSize} from '../../api/tmdbConfig';
 
 const MediaSwiper = props => {
     const [media, setMedia] = useState([]);
@@ -31,9 +33,10 @@ const MediaSwiper = props => {
     return (
         <div className='media-swiper'>
             {
-                media.map((media,index) => (
+                media.map((item,index) => (
                     <div key={index}>
-                        <img src={tmdbConfig.imageUrl(imageSize.w500,media.poster_path)} alt='' />
+                        {/* <img src={tmdbConfig.imageUrl(imageSize.w500,media.poster_path)} alt='' /> */}
+                        <MediaCard item={item} mediaType={props.mediaType} />
                     </div>
                 ))
             }
