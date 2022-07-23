@@ -11,7 +11,7 @@ const MediaCard = props => {
     const movieCover = tmdbConfig.imageUrl(props.item.poster_path || props.item.backdrop_path);
     return (
         <div className="media-card">
-            <h3 class="media-card__title">
+            <h3 className="media-card__title">
                 {/* <img src={tmdbConfig.imageUrl(imageSize.w500,media.poster_path)} alt='' /> */}
                 {props.item.title || props.item.name}
             </h3>

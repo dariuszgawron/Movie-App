@@ -6,15 +6,28 @@ import './Header.css';
 const navLinks = [
     {
         title: 'Home',
-        pathname: '/'
+        pathname: '/',
+        iconclass: 'bx bx-home'
     },
     {
         title: 'Movies',
-        pathname: '/movies'
+        pathname: '/movie',
+        iconclass: 'bx bx-film'
     },
     { 
         title: 'TV Shows',
-        pathname: '/tv'
+        pathname: '/tv',
+        iconclass: 'bx bx-tv'
+    },
+    { 
+        title: 'Search',
+        pathname: '/search',
+        iconclass: 'bx bx-search'
+    },
+    { 
+        title: 'About',
+        pathname: '/about',
+        iconclass: 'bx bx-info-circle'
     }
 ];
 
@@ -34,6 +47,7 @@ const Header = () => {
                             key={index} 
                             className={`header-nav__item ${index === activeLink ? 'header-nav__item--active' : ''}`}>
                             <Link to={link.pathname}>
+                                <i className={link.iconclass}></i>
                                 {link.title}
                             </Link>
                         </li>
