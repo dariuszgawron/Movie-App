@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import tmdbApi, { mediaTypes, movieCategories, tvCategories } from "../../api/tmdbApi";
 
 import MediaCard from "../MediaCard/MediaCard";
+import MediaSearch from "../MediaSearch/MediaSearch";
 
 import './MovieList.css';
 
@@ -24,7 +25,7 @@ const MovieList = props => {
                 queryParams = {
                     query: keyword
                 };
-                response = await tmdbApi.searchMedia(props.mediaType, {queryParams});
+                response = await tmdbApi.searchMedia(props.mediaType, {params: queryParams});
             }
             setMedia(response.results);
             setTotalPages(response.total_pages);
@@ -50,6 +51,9 @@ const MovieList = props => {
 
     return (
         <>
+            <div className="media-section">
+                <MediaSearch mediaType={props.mediaType} keyword={keyword} />
+            </div>
             <div className="media-list">
                 {
                     media.map((item, index) => {

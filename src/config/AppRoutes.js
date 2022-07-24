@@ -8,7 +8,7 @@ import Details from '../pages/Details';
 const AppRoutes = () => {
     return (
         <Routes>
-            <Route path='/:type/search/:query' element={<Catalog />} />
+            <Route path='/:type/search/:keyword' element={<Catalog />} />
             <Route path='/:type/:id' element={<Details />} />
             <Route path='/:type' element={<Catalog />} />
             <Route path='/' element={<Home />} />
