@@ -37,7 +37,7 @@ const Header = () => {
     const activeLink = navLinks.findIndex(link => link.pathname === pathname);
 
     return (
-        <div className="header" ref={headerRef}>
+        <header className="header" ref={headerRef}>
             <div className="header__container">
                 {/* LOGO */}
                 <ul className="header-nav">
@@ -54,7 +54,7 @@ const Header = () => {
                 ))}
                 </ul>
             </div>
-        </div>
+        </header>
     )
 };
 

@@ -21,10 +21,11 @@ const CastSwiper = () => {
     return (
         <div className="casts">
             {
-                casts.map((item,index) => (
+                casts.map((cast,index) => (
                     <div className="casts__item" key={index}>
-                        <img src={tmdbConfig.imageUrl(imageSize.w500,item.profile_path || '')} alt='' />
-                        <p className="casts__item-name">{item.name}</p>
+                        <img src={tmdbConfig.imageUrl(imageSize.w500,cast.profile_path || '')} alt='' />
+                        <p className="casts__item-name">{cast.name}</p>
+                        <p className="casts__item-character">{cast.character}</p>
                     </div>
                 ))
             }

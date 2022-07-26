@@ -5,6 +5,9 @@ import tmdbApi from "../../api/tmdbApi";
 import tmdbConfig, {imageSize } from "../../api/tmdbConfig";
 
 import CastSwiper from "../CastSwiper/CastSwiper";
+import VideoSwiper from "../VideoSwiper/VideoSwiper";
+import MediaSwiper from "../MediaSwiper/MediaSwiper";
+import ImageSwiper from "../ImageSwiper/ImageSwiper";
 
 import './Details.css';
 
@@ -48,6 +51,27 @@ const Details = () => {
                                     <h2>Cast</h2>
                                 </div>
                                 <CastSwiper />
+                            </div>
+                        </div>
+
+                        <div className="image__container">
+                            <div className="section">
+                                <ImageSwiper />
+                            </div>
+                        </div>
+
+                        <div className="trailer__container">
+                            <div className="section">
+                                {/* <VideoSwiper /> */}
+                            </div>
+                        </div>
+
+                        <div className="similar">
+                            <div className="section">
+                                <div className="section__header">
+                                    Similar
+                                </div>
+                                <MediaSwiper mediaType={type} mediaCategory="similar" mediaId={id}/>
                             </div>
                         </div>
                         

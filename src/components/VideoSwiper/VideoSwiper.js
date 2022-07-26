@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import tmdbApi from "../../api/tmdbApi";
 
+import VideoCard from "../VideoCard/VideoCard";
+
 import './VideoSwiper.css';
 
 const VideoSwiper = () => {
@@ -11,7 +13,7 @@ const VideoSwiper = () => {
 
     useEffect(() => {
         const getVideos = async () => {
-            const response = tmdbApi.getMediaVideos(type,id);
+            const response = await tmdbApi.getMediaVideos(type,id);
             setVideos(response.results);
         };
         getVideos();
@@ -20,9 +22,9 @@ const VideoSwiper = () => {
     return (
         <>
             {
-                // videos.map((video, index) => (
-                //     <Video key={index} />
-                // ))
+                videos && videos.map((video, index) => (
+                    <VideoCard key={index} item={video}/>
+                ))
             }
         </>
     )
