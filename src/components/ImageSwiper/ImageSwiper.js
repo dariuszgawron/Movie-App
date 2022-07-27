@@ -20,10 +20,10 @@ const ImageSwiper = () => {
     },[type,id]);
     
     return (
-        <div>
+        <div className="image-swiper">
             {
                 images.map((image,index) => (
-                    <img key={index} src={tmdbConfig.imageUrl(imageSize.original,image.file_path)} alt='' />
+                    <img className="image-card" key={index} src={tmdbConfig.imageUrl(imageSize.original,image.file_path)} alt='' />
                 ))
             }
         </div>

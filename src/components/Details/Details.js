@@ -24,7 +24,7 @@ const Details = () => {
     }, [type,id]);
 
     return (
-        <div className="details">
+        <div className="media-details">
             {
                 item && (
                     <>

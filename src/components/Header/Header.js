@@ -38,22 +38,28 @@ const Header = () => {
 
     return (
         <header className="header" ref={headerRef}>
-            <div className="header__container">
-                {/* LOGO */}
-                <ul className="header-nav">
-                { 
-                    navLinks.map((link,index) => (
-                        <li 
-                            key={index} 
-                            className={`header-nav__item ${index === activeLink ? 'header-nav__item--active' : ''}`}>
-                            <Link to={link.pathname}>
-                                <i className={link.iconclass}></i>
-                                {link.title}
-                            </Link>
-                        </li>
-                ))}
-                </ul>
-            </div>
+            <nav className="nav">
+                <div className="nav-logo">
+                    Logo
+                </div>
+                <div className="nav-search">
+
+                </div>
+                <div className="nav__menu">
+                    <ul className="nav__list">
+                        {
+                            navLinks.map((link,index) => (
+                                <li className={`nav__list-item ${index === activeLink ? 'nav__list-item--active' : ''}`} key={index}>
+                                    <Link className="nav__link" to={link.pathname}>
+                                        <i className={`nav__link-icon ${link.iconclass}`}></i>
+                                        <span className="nav__link-text">{link.title}</span>
+                                    </Link>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </nav>
         </header>
     )
 };

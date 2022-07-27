@@ -9,16 +9,20 @@ import './MediaCard.css';
 
 const MediaCard = props => {
     const linkUrl = `/${mediaTypes[props.mediaType]}/${props.item.id}`;
-    const movieCover = tmdbConfig.imageUrl(props.item.poster_path || props.item.backdrop_path);
+    const movieCover = tmdbConfig.imageUrl(imageSize.w500,props.item.poster_path || props.item.backdrop_path);
     return (
-        <Link to={linkUrl}>
-            <div className="media-card">
-                <h3 className="media-card__title">
-                    {/* <img src={tmdbConfig.imageUrl(imageSize.w500,movieCover)} alt='' /> */}
-                    {props.item.title || props.item.name}
-                </h3>
-            </div>
-        </Link>
+        <div className="media__card">
+            <Link className="media__card-link" to={linkUrl}>
+                <div className="media__card-cover">
+                    <img className="media__card-img" src={movieCover} alt="" />
+                </div>
+                <div className="media__card-data">
+                    <h3 className="media__card-title">
+                        {props.item.title || props.item.name}
+                    </h3>
+                </div>
+            </Link>
+        </div>
     )
 }
 
