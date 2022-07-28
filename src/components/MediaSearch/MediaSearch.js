@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { mediaTypes} from "../../api/tmdbApi";
 
-import './MediaSearch.css';
+import './MediaSearch.scss';
 
 const MediaSearch = props => {
     const navigate = useNavigate();

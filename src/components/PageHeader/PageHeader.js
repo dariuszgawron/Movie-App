@@ -1,6 +1,6 @@
 import React from "react";
 
-import './PageHeader.css';
+import './PageHeader.scss';
 
 const PageHeader = props => {
     return (

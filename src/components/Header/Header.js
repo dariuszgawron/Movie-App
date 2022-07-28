@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import {Link,useLocation} from 'react-router-dom';
 
-import './Header.css';
+import './Header.scss';
 
 const navLinks = [
     {

@@ -5,7 +5,7 @@ import tmdbApi from "../../api/tmdbApi";
 
 import VideoCard from "../VideoCard/VideoCard";
 
-import './VideoSwiper.css';
+import './VideoSwiper.scss';
 
 const VideoSwiper = () => {
     const {type,id} = useParams();

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import tmdbConfig, {imageSize} from "../../api/tmdbConfig";
 import tmdbApi from "../../api/tmdbApi";
 
-import './ImageSwiper.css';
+import './ImageSwiper.scss';
 
 const ImageSwiper = () => {
     const {type,id} = useParams();

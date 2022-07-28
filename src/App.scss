@@ -43,6 +43,34 @@ button {
   cursor: pointer;
 }
 
+.section {
+  padding: 1rem 0;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(86, 86, 86);
+    padding: .8rem;
+    margin-bottom: 1rem;
+    border-radius: .3rem;
+  }
+
+  &__title {
+    color: white;
+  }
+
+  &__link {
+    font-size: .9rem;
+    text-transform: uppercase;
+    padding: .3rem .8rem;
+    color: white;
+    border: 1px solid white;
+    border-radius: .8rem;
+  }
+}
+
+
 
 
 .App {

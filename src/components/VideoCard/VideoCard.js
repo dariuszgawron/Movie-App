@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 import tmdbConfig from "../../api/tmdbConfig";
 
-import './VideoCard.css';
+import './VideoCard.scss';
 
 const VideoCard = props => {
     const video = props.item;

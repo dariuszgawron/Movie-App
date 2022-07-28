@@ -9,7 +9,7 @@ import VideoSwiper from "../VideoSwiper/VideoSwiper";
 import MediaSwiper from "../MediaSwiper/MediaSwiper";
 import ImageSwiper from "../ImageSwiper/ImageSwiper";
 
-import './Details.css';
+import './Details.scss';
 
 const Details = () => {
     const {type,id} = useParams();

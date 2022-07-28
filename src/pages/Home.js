@@ -13,22 +13,34 @@ const sectionsData = [
         mediaCategory: movieCategories.popular
     },
     {
-        title: 'Top rated movies',
-        linkMore: '/movie',
-        mediaType: mediaTypes.movie,
-        mediaCategory: movieCategories.top_rated
-    },
-    {
         title: 'Popular tv shows',
         linkMore: '/tv',
         mediaType: mediaTypes.tv,
         mediaCategory: tvCategories.popular
     },
     {
+        title: 'Top rated movies',
+        linkMore: '/movie',
+        mediaType: mediaTypes.movie,
+        mediaCategory: movieCategories.top_rated
+    },
+    {
         title: 'Top rated tv shows',
         linkMore: '/tv',
         mediaType: mediaTypes.tv,
         mediaCategory: tvCategories.top_rated
+    },
+    {
+        title: 'Popular movies',
+        linkMore: '/movie',
+        mediaType: mediaTypes.movie,
+        mediaCategory: movieCategories.popular
+    },
+    {
+        title: 'Airing today tv shows',
+        linkMore: '/tv',
+        mediaType: mediaTypes.tv,
+        mediaCategory: tvCategories.airing_today
     }
 ]
 
@@ -53,54 +65,6 @@ const Home = () => {
                         </section>
                     ))
                 }
-                {/* POPULAR MOVIES */}
-                {/* <div className='section'>
-                    <div className='section__header'>
-                        <h2 className='section__title'>
-                            Popular movies
-                        </h2>
-                        <Link to='/movie'>
-                            View more
-                        </Link>
-                    </div>
-                    <MediaSwiper mediaType={mediaTypes.movie} mediaCategory={movieCategories.popular}/>
-                </div> */}
-                {/* TOP RATED MOVIES */}
-                <div className='section'>
-                    <div className='section__header'>
-                        <h2 className='section__title'>
-                            Top rated movies
-                        </h2>
-                        <Link to='/movie'>
-                            View more
-                        </Link>
-                    </div>
-                    <MediaSwiper mediaType={mediaTypes.movie} mediaCategory={movieCategories.top_rated}/>
-                </div>
-                {/* POPULAR TV SHOWS */}
-                <div className='section'>
-                    <div className='section__header'>
-                        <h2 className='section__title'>
-                            Popular tv shows
-                        </h2>
-                        <Link to='/tv'>
-                            View more
-                        </Link>
-                    </div>
-                    <MediaSwiper mediaType={mediaTypes.tv} mediaCategory={tvCategories.popular}/>
-                </div>
-                {/* TOP RATED TV SHOWS */}
-                <div className='section'>
-                    <div className='section__header'>
-                        <h2 className='section__title'>
-                            Top rated movies
-                        </h2>
-                        <Link to='/tv'>
-                            View more
-                        </Link>
-                    </div>
-                    <MediaSwiper mediaType={mediaTypes.tv} mediaCategory={tvCategories.top_rated}/>
-                </div>
             </div>
         </main>
     )

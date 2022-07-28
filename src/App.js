@@ -1,6 +1,6 @@
 import { BrowserRouter} from 'react-router-dom';
 
-import './App.css';
+import './App.scss';
 
 import AppRoutes from './config/AppRoutes';
 import Header from './components/Header/Header';

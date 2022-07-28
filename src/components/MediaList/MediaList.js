@@ -5,7 +5,7 @@ import tmdbApi, { mediaTypes, movieCategories, tvCategories } from "../../api/tm
 import MediaCard from "../MediaCard/MediaCard";
 import MediaSearch from "../MediaSearch/MediaSearch";
 
-import './MovieList.css';
+import './MediaList.scss';
 
 const MovieList = props => {
     const [media,setMedia] = useState([]);
