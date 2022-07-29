@@ -16,6 +16,28 @@
         object-fit: cover;
     }
 
+    &__rate {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: .5rem .8rem;
+        background-color: rgba(107, 107, 107, 0.822);
+        display: flex;
+        align-items: center;
+        gap: .3rem;
+        border-radius: 0 0 0 .8rem;
+
+        &-icon {
+            color: yellow;
+        }
+
+        &-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: lightgray;
+        }
+    }
+
     &__data {
         position: absolute;
         top: 0;

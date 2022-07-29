@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import tmdbApi from '../../api/tmdbApi';
 // import axiosConfig from '../../api/axiosConfig';
-import tmdbConfig, {imageSize} from '../../api/tmdbConfig';
+// import tmdbConfig, {imageSize} from '../../api/tmdbConfig';
 
 import MediaCard from '../MediaCard/MediaCard';
 
@@ -35,13 +35,12 @@ const MediaSwiper = props => {
     return (
         <div className='media-swiper'>
             <Swiper
-                spaceBetween={30}
+                spaceBetween={15}
                 slidesPerView={'auto'}
             >
             {
                 media.map((item,index) => (
                     <SwiperSlide key={index}>
-                        {/* <img src={tmdbConfig.imageUrl(imageSize.w500,media.poster_path)} alt='' /> */}
                         <MediaCard item={item} mediaType={props.mediaType} />
                     </SwiperSlide>
                 ))

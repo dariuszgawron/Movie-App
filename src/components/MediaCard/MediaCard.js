@@ -15,9 +15,14 @@ const MediaCard = props => {
             <Link className="media-card__link" to={linkUrl}>
                 <img className="media-card__img" src={movieCover} alt="" />
                 <div className="media-card__data">
+                    <div className="media-card__rate">
+                        <i class='media-card__rate-icon bx bxs-star'></i>
+                        <span className="media-card__rate-text">
+                            {props.item.vote_average.toFixed(1)}
+                        </span>
+                    </div>
                     <h3 className="media-card__title">
                         {props.item.title || props.item.name}
-                        {props.item.vote_average}
                     </h3>
                 </div>
             </Link>
