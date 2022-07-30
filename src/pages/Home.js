@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 import {mediaTypes,movieCategories,tvCategories} from '../api/tmdbApi';
 
+import HeroSlider from '../components/HeroSlider/HeroSlider';
 import MediaSwiper from '../components/MediaSwiper/MediaSwiper';
 
 const sectionsData = [
@@ -48,6 +49,7 @@ const Home = () => {
     return (
         <main className='main'>
             <div className='main__container'>
+                <HeroSlider />
                 {
                     sectionsData.map((section,index) => (
                         <section className='section' key={index}>
