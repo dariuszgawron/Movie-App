@@ -1,0 +1,11 @@
+.button {
+    padding: .5rem .8rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    border-radius: .3rem;
+
+    &__icon {
+        font-size: var(--font-size-2);
+    }
+}

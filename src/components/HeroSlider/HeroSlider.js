@@ -23,7 +23,7 @@ const HeroSlider = () => {
     },[]);
 
     return (
-        <div className="her-slider">
+        <div className="hero-slider">
             <Swiper
                 modules={[Autoplay,EffectCoverflow]} effect="coverflow"
                 slidesPerView={1}
