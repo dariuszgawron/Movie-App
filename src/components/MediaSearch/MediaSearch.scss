@@ -1,0 +1,30 @@
+.media-search {
+    width: 300px;
+    // height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+
+    &__input {
+        // height: 80px;
+        padding: .51rem .7rem;
+        border-radius: 1rem 0 0 1rem;
+        outline: none;
+        border: none;
+        background-color: rgba(251, 251, 251, 0.2);
+    }
+
+    &__button {
+        // height: 30px;
+        margin-left: -2px;
+        padding: .3rem .7rem;
+        background-color: white;
+        border-radius: 0 1rem 1rem 0;
+        border: none;
+        background-color: rgba(251, 251, 251, 0.2);
+
+        &-icon {
+
+        }
+    }
+}

@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import {Link,useLocation} from 'react-router-dom';
 
+import MediaSearch from "../MediaSearch/MediaSearch";
+
 import './Header.scss';
 
 const navLinks = [
@@ -38,12 +40,13 @@ const Header = () => {
 
     return (
         <header className="header" ref={headerRef}>
-            <nav className="nav">
+            <nav className="nav container">
                 <div className="nav-logo">
-                    Logo
+                    <i class='nav-logo__icon bx bx-camera-movie'></i>
+                    <Link to="/">Movie app</Link>
                 </div>
                 <div className="nav-search">
-
+                    <MediaSearch />
                 </div>
                 <div className="nav__menu">
                     <ul className="nav__list">

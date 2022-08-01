@@ -28,45 +28,64 @@ const Details = () => {
             {
                 item && (
                     <>
-                        <img src={tmdbConfig.imageUrl(imageSize.original,item.backdrop_path || item.poster_path)} alt='' />
-                        <div className="details__poster">
-                            <img src={tmdbConfig.imageUrl(imageSize.original,item.poster_path || item.backdrop_path)} alt='' />
+                        <div className="media-details__banner">
+                            <img className="media-details__banner-image" src={tmdbConfig.imageUrl(imageSize.original,item.backdrop_path || item.poster_path)} alt='' />
                         </div>
-                        <div className="details__info">
-                            <div className="title">
-                                <h1>{item.title || item.name}</h1>
+                        <div className="media-details__content">
+                            <div className="media-details__poster">
+                                <img src={tmdbConfig.imageUrl(imageSize.original,item.poster_path || item.backdrop_path)} alt='' />
                             </div>
-                            <div className="genres">
-                                {
-                                    item.genres && item.genres.map((genre,index) => (
-                                        <span key={index}>{genre.name}</span>
-                                    ))
-                                }
-                            </div>
-                            <p className="overview">
-                                {item.overview}
-                            </p>
-                            <div className="cast">
-                                <div className="cast__header">
-                                    <h2>Cast</h2>
+                            <div className="media-details__info">
+                                <div className="media-details__type">
+                                    {'TV SHOW'}
                                 </div>
-                                <CastSwiper />
+                                <div className="media-details__title">
+                                    <h1>{item.title || item.name}</h1>
+                                </div>
+                                <div className="media-details__group">
+                                    <div className="media-details__genres">
+                                        {
+                                            item.genres && item.genres.map((genre,index) => (
+                                                <span className="media-details__genres-item" key={index}>{genre.name}</span>
+                                            ))
+                                        }
+                                    </div>
+                                    <div className="media-details__publish-date">
+                                        {item.publish_date}
+                                    </div>
+                                    <div className="media-details__runtime">
+                                        {item.runtime}
+                                    </div>
+                                </div>
+                                
+                                <p className="media-details__overview">
+                                    {item.overview}
+                                </p>
+                                
                             </div>
                         </div>
 
-                        <div className="image__container">
+                        <div className="media-details__casts">
+                            <div className="cast__header">
+                                <h2>Cast</h2>
+                            </div>
+                            <CastSwiper />
+                        </div>
+                        
+
+                        <div className="media-details__images">
                             <div className="section">
                                 <ImageSwiper />
                             </div>
                         </div>
 
-                        <div className="trailer__container">
+                        <div className="media-details__trailers">
                             <div className="section">
                                 {/* <VideoSwiper /> */}
                             </div>
                         </div>
 
-                        <div className="similar">
+                        <div className="media-details__similar">
                             <div className="section">
                                 <div className="section__header">
                                     Similar
