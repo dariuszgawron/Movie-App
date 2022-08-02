@@ -17,7 +17,7 @@ const navLinks = [
         iconclass: 'bx bx-film'
     },
     { 
-        title: 'TV Shows',
+        title: 'Series',
         pathname: '/tv',
         iconclass: 'bx bx-tv'
     },
@@ -42,8 +42,10 @@ const Header = () => {
         <header className="header" ref={headerRef}>
             <nav className="nav container">
                 <div className="nav-logo">
-                    <i class='nav-logo__icon bx bx-camera-movie'></i>
-                    <Link to="/">Movie app</Link>
+                    <i className='nav-logo__icon bx bx-camera-movie'></i>
+                    <Link className="nav-logo__link" to="/">
+                        Movie<span className="nav-logo__link nav-logo__link--primary">app</span>
+                    </Link>
                 </div>
                 <div className="nav-search">
                     <MediaSearch />

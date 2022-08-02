@@ -52,7 +52,7 @@ const Home = () => {
                 <HeroSlider />
                 {
                     sectionsData.map((section,index) => (
-                        <section className='section' key={index}>
+                        <section className='section container' key={index}>
                             <div className='section__header'>
                                 <h2 className='section__title'>
                                     {section.title}

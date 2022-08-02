@@ -43,7 +43,7 @@ const MediaSearch = props => {
                 onChange={(event) => setKeyword(event.target.value)}
             />
             <button className="media-search__button" onClick={searchKeyword}>
-                <i class='media-search__button-icon bx bx-search' ></i>
+                <i className='media-search__button-icon bx bx-search' ></i>
             </button>
         </div>
     )
