@@ -4,8 +4,8 @@ import './PageHeader.scss';
 
 const PageHeader = props => {
     return (
-        <div className="page-header">
-            <h2 className="page-header__title">
+        <div className="page-header container">
+            <h2 className="page-header__title page-header__title--center">
                 {props.children}
             </h2>
 

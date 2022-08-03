@@ -1,0 +1,16 @@
+.page-header {
+    margin-bottom: .6rem;
+
+    &__title {
+        font-size: var(--font-size-2);
+        color: var(--text-color-light);
+
+        &::first-letter {
+            color: var(--primary-color);
+        }
+
+        &--center {
+            text-align: center;
+        }
+    }
+}

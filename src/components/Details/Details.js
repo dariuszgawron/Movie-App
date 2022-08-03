@@ -28,10 +28,10 @@ const Details = () => {
             {
                 item && (
                     <>
-                        <div className="media-details__banner">
+                        <div className="media-details__banner container">
                             <img className="media-details__banner-image" src={tmdbConfig.imageUrl(imageSize.original,item.backdrop_path || item.poster_path)} alt='' />
                         </div>
-                        <div className="media-details__content">
+                        <div className="media-details__content container">
                             <div className="media-details__poster">
                                 <img src={tmdbConfig.imageUrl(imageSize.original,item.poster_path || item.backdrop_path)} alt='' />
                             </div>
@@ -40,7 +40,7 @@ const Details = () => {
                                     {'TV SHOW'}
                                 </div>
                                 <div className="media-details__title">
-                                    <h1>{item.title || item.name}</h1>
+                                    <h1 className="media-details__title-text">{item.title || item.name}</h1>
                                 </div>
                                 <div className="media-details__group">
                                     <div className="media-details__genres">
@@ -65,7 +65,7 @@ const Details = () => {
                             </div>
                         </div>
 
-                        <div className="media-details__casts">
+                        <div className="media-details__casts container">
                             <div className="cast__header">
                                 <h2>Cast</h2>
                             </div>
@@ -73,10 +73,11 @@ const Details = () => {
                         </div>
                         
 
-                        <div className="media-details__images">
-                            <div className="section">
-                                <ImageSwiper />
+                        <div className="media-details__images container">
+                            <div className="section__header">
+                                <h2 className="section__title">Images</h2>
                             </div>
+                            <ImageSwiper />
                         </div>
 
                         <div className="media-details__trailers">

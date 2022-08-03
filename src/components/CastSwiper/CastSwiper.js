@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Swiper, SwiperSlide} from 'swiper/react';
+import "swiper/css";
 
 import tmdbApi from "../../api/tmdbApi";
 import tmdbConfig, { imageSize } from "../../api/tmdbConfig";
@@ -20,15 +22,23 @@ const CastSwiper = () => {
 
     return (
         <div className="casts">
+            <Swiper
+                spaceBetween={15}
+                slidesPerView={'auto'}
+            >
             {
                 casts.map((cast,index) => (
-                    <div className="casts__item" key={index}>
-                        <img src={tmdbConfig.imageUrl(imageSize.w500,cast.profile_path || '')} alt='' />
-                        <p className="casts__item-name">{cast.name}</p>
-                        <p className="casts__item-character">{cast.character}</p>
-                    </div>
+                    <SwiperSlide key={index}>
+                        <div className="casts__item" key={index}>
+                            <img className="casts__item-image" src={tmdbConfig.imageUrl(imageSize.w500,cast.profile_path || '')} alt='' />
+                            <p className="casts__item-name">{cast.name}</p>
+                            <p className="casts__item-character">{cast.character}</p>
+                        </div>
+                    </SwiperSlide>
                 ))
             }
+            </Swiper>
+            
         </div>
     )
 };

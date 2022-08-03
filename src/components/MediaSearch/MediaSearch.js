@@ -37,7 +37,7 @@ const MediaSearch = props => {
         <div className="media-search">
             <input
                 className="media-search__input"
-                type='text'
+                type='search'
                 placeholder="Search media"
                 value={keyword}
                 onChange={(event) => setKeyword(event.target.value)}

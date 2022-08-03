@@ -5,6 +5,10 @@
     gap: .5rem;
     border-radius: .3rem;
 
+    &--center {
+        text-align: center;
+    }
+
     &__icon {
         font-size: var(--font-size-2);
     }

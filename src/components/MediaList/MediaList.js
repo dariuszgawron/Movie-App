@@ -4,6 +4,7 @@ import tmdbApi, { mediaTypes, movieCategories, tvCategories } from "../../api/tm
 
 import MediaCard from "../MediaCard/MediaCard";
 import MediaSearch from "../MediaSearch/MediaSearch";
+import Button from "../Button/Button";
 
 import './MediaList.scss';
 
@@ -64,8 +65,8 @@ const MovieList = props => {
             {
                 (currentPage<totalPages)
                 ? (
-                    <div>
-                        <button onClick={loadMore}>Load more</button>
+                    <div className="media-button">
+                        <Button onClick={loadMore}>Load more</Button>
                     </div>
                 )
                 : null

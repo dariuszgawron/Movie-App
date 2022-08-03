@@ -1,0 +1,21 @@
+.casts {
+
+    &__item {
+        width: 220px;
+        color: var(--text-color-light);
+
+        &-image {
+            margin-bottom: .5rem;            
+            border-radius: 0 .8rem 0 .8rem;
+        }
+
+        &-name {
+            font-size: var(--font-size-4);
+            font-weight: var(--font-weight-bold);
+        }
+
+        &-character {
+            font-size: var(--font-size-5);
+        }
+    }
+}

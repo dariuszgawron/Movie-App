@@ -1,0 +1,12 @@
+
+.media-list {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+.media-button {
+    display: flex;
+    justify-content: center;
+}

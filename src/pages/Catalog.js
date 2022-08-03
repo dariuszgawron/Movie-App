@@ -12,7 +12,7 @@ const Catalog = () => {
     return (
         <>
             <PageHeader>
-                {(type===mediaTypes.movie) ? 'Movies' : 'Tv Shows'}
+                {(type===mediaTypes.movie) ? 'Movies' : 'Series'}
             </PageHeader>
             <div className="container">
                 <div className="section">
