@@ -21,7 +21,8 @@
   --primary-color: rgb(233, 158, 18);
   --secondary-color: rgb(0,0,0);
   --background-primary-color: rgb(30,31,44);
-  --background-secondary-color: rgb(45,46,57);
+  // --background-secondary-color: rgb(45,46,57);
+  --background-secondary-color: rgb(59, 60, 68);
   --text-color-light: rgb(255, 255, 255);
   --text-color-normal: rgb(0,0,0);
   --text-color-dark: rgb(0,0,0);
@@ -90,7 +91,7 @@ button {
     background-color: var(--background-secondary-color);
     padding: .8rem;
     margin-bottom: 1rem;
-    border-radius: .3rem;
+    border-radius: 0 1rem 0 1rem;
   }
 
   &__title {
