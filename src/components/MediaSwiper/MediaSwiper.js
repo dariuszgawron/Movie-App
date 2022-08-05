@@ -1,8 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 // import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper';
+ 
 import 'swiper/css';
+import 'swiper/css/navigation';
 
 import tmdbApi from '../../api/tmdbApi';
 // import axiosConfig from '../../api/axiosConfig';
@@ -14,6 +17,8 @@ import './MediaSwiper.scss';
 
 const MediaSwiper = props => {
     const [media, setMedia] = useState([]);
+    const navigationPrevRef = useRef(null);
+    const navigationNextRef = useRef(null);
 
     useEffect(() => {
         const getMedias = async () => {
@@ -35,8 +40,13 @@ const MediaSwiper = props => {
     return (
         <div className='media-swiper'>
             <Swiper
+                modules={[Navigation]}
                 spaceBetween={15}
                 slidesPerView={'auto'}
+                navigation={{
+                    prevEl: navigationPrevRef.current,
+                    nextEl: navigationNextRef.current
+                }}
             >
             {
                 media.map((item,index) => (
@@ -45,6 +55,12 @@ const MediaSwiper = props => {
                     </SwiperSlide>
                 ))
             }
+                <div className="media-swiper__navigation media-swiper__navigation--prev" ref={navigationPrevRef}>
+                    <i class='media-swiper__navigation-icon bx bx-chevron-left'></i>
+                </div>
+                <div className="media-swiper__navigation media-swiper__navigation--next" ref={navigationNextRef}>
+                    <i class='media-swiper__navigation-icon bx bx-chevron-right'></i>
+                </div>
             </Swiper>
         </div>
     )

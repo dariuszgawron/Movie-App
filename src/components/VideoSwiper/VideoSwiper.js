@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from 'react-router-dom';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 import tmdbApi from "../../api/tmdbApi";
 
@@ -20,13 +22,20 @@ const VideoSwiper = () => {
     },[type,id]);
 
     return (
-        <>
-            {
-                videos && videos.map((video, index) => (
-                    <VideoCard key={index} item={video}/>
-                ))
-            }
-        </>
+        <div className="trailers">
+            <Swiper
+                spaceBetween={15}
+                slidesPerView={4}
+            >
+                {
+                    videos && videos.map((video, index) => (
+                        <SwiperSlide>
+                            <VideoCard key={index} item={video}/>
+                        </SwiperSlide>
+                    ))
+                }
+            </Swiper>
+        </div>
     )
 };
 

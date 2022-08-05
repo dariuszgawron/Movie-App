@@ -19,6 +19,7 @@ const Details = () => {
         const getDetails = async () => {
             let response = await tmdbApi.getMediaDetails(type,id,{params: {}} );
             setItems(response);
+            window.scrollTo(0,0);
         };
         getDetails();
     }, [type,id]);
@@ -66,13 +67,12 @@ const Details = () => {
                         </div>
 
                         <div className="media-details__casts container">
-                            <div className="cast__header">
-                                <h2>Cast</h2>
+                            <div className="section__header">
+                                <h2 className="section__title">Cast</h2>
                             </div>
                             <CastSwiper />
                         </div>
                         
-
                         <div className="media-details__images container">
                             <div className="section__header">
                                 <h2 className="section__title">Images</h2>
@@ -80,16 +80,17 @@ const Details = () => {
                             <ImageSwiper />
                         </div>
 
-                        <div className="media-details__trailers">
-                            <div className="section">
-                                {/* <VideoSwiper /> */}
+                        <div className="media-details__trailers container">
+                            <div className="section__header">
+                                <h2 className="section__title">Trailers</h2>
                             </div>
+                            {/* <VideoSwiper /> */}
                         </div>
 
-                        <div className="media-details__similar">
+                        <div className="media-details__similar container">
                             <div className="section">
                                 <div className="section__header">
-                                    Similar
+                                    <h2 className="section__title">Similar</h2>
                                 </div>
                                 <MediaSwiper mediaType={type} mediaCategory="similar" mediaId={id}/>
                             </div>

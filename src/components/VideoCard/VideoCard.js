@@ -14,14 +14,16 @@ const VideoCard = props => {
     });
 
     return (
-        <div className="trailer">
+        <div className="trailer-card">
             <iframe 
+                className="trailer-card__video"
                 src={tmdbConfig.videoUrl(video.key)}
                 ref={iframeRef}
                 title={video.name}
+                allowFullScreen
             >
             </iframe>
-            <div className="iframe__title">
+            <div className="trailer-card__title">
                 {video.name}
             </div>
         </div>
