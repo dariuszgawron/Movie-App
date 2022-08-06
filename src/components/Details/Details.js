@@ -29,21 +29,22 @@ const Details = () => {
             {
                 item && (
                     <>
-                        <div className="media-details__banner container">
-                            <img className="media-details__banner-image" src={tmdbConfig.imageUrl(imageSize.original,item.backdrop_path || item.poster_path)} alt='' />
-                        </div>
-                        <div className="media-details__content container">
-                            <div className="media-details__poster">
-                                <img src={tmdbConfig.imageUrl(imageSize.original,item.poster_path || item.backdrop_path)} alt='' />
+                        <div className="media-details__header container">
+                            <div className="media-details__header-rate">
+                                {`${item.vote_average.toFixed(1)} / 10`}
                             </div>
-                            <div className="media-details__info">
-                                <div className="media-details__type">
-                                    {'TV SHOW'}
+                            <img className="media-details__header-background" src={tmdbConfig.imageUrl(imageSize.original,item.backdrop_path || item.poster_path)} alt='' />
+                            <div className="media-details__header-content">
+                                <div className="media-details__poster">
+                                    <img className="media-details__poster-image" src={tmdbConfig.imageUrl(imageSize.original,item.poster_path || item.backdrop_path)} alt='' />
                                 </div>
-                                <div className="media-details__title">
-                                    <h1 className="media-details__title-text">{item.title || item.name}</h1>
-                                </div>
-                                <div className="media-details__group">
+                                <div className="media-details__info">
+                                    <div className="media-details__type">
+                                        {'TV SHOW'}
+                                    </div>
+                                    <div className="media-details__title">
+                                        <h1 className="media-details__title-text">{item.title || item.name}</h1>
+                                    </div>
                                     <div className="media-details__genres">
                                         {
                                             item.genres && item.genres.map((genre,index) => (
@@ -51,21 +52,22 @@ const Details = () => {
                                             ))
                                         }
                                     </div>
-                                    <div className="media-details__publish-date">
-                                        {item.publish_date}
+                                    <div className="media-details__group">
+                                        <div className="media-details__publish-date">
+                                            {new Date(item.release_date).getFullYear()}
+                                        </div>
+                                        <div className="media-details__runtime">
+                                            {`${Math.floor(item.runtime/60) || 0}h ${item.runtime%60 || 0}m`}
+                                        </div>
                                     </div>
-                                    <div className="media-details__runtime">
-                                        {item.runtime}
-                                    </div>
+                                    
+                                    <p className="media-details__overview">
+                                        {item.overview}
+                                    </p>
                                 </div>
-                                
-                                <p className="media-details__overview">
-                                    {item.overview}
-                                </p>
-                                
                             </div>
                         </div>
-
+                        
                         <div className="media-details__casts container">
                             <div className="section__header">
                                 <h2 className="section__title">Cast</h2>
@@ -84,7 +86,7 @@ const Details = () => {
                             <div className="section__header">
                                 <h2 className="section__title">Trailers</h2>
                             </div>
-                            {/* <VideoSwiper /> */}
+                            <VideoSwiper />
                         </div>
 
                         <div className="media-details__similar container">

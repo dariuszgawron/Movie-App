@@ -48,10 +48,10 @@ const CastSwiper = () => {
                 ))
             }
                 <div className="casts__navigation casts__navigation--prev" ref={navigationPrevRef}>
-                    <i class='casts__navigation-icon bx bx-chevron-left'></i>
+                    <i className='casts__navigation-icon bx bx-chevron-left'></i>
                 </div>
                 <div className="casts__navigation casts__navigation--next" ref={navigationNextRef}>
-                    <i class='casts__navigation-icon bx bx-chevron-right'></i>
+                    <i className='casts__navigation-icon bx bx-chevron-right'></i>
                 </div>
             </Swiper>
             

@@ -56,10 +56,10 @@ const MediaSwiper = props => {
                 ))
             }
                 <div className="media-swiper__navigation media-swiper__navigation--prev" ref={navigationPrevRef}>
-                    <i class='media-swiper__navigation-icon bx bx-chevron-left'></i>
+                    <i className='media-swiper__navigation-icon bx bx-chevron-left'></i>
                 </div>
                 <div className="media-swiper__navigation media-swiper__navigation--next" ref={navigationNextRef}>
-                    <i class='media-swiper__navigation-icon bx bx-chevron-right'></i>
+                    <i className='media-swiper__navigation-icon bx bx-chevron-right'></i>
                 </div>
             </Swiper>
         </div>
