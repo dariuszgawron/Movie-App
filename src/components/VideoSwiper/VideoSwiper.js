@@ -39,7 +39,7 @@ const VideoSwiper = () => {
             >
                 {
                     videos && videos.map((video, index) => (
-                        <SwiperSlide>
+                        <SwiperSlide key={index}>
                             <VideoCard key={index} item={video}/>
                         </SwiperSlide>
                     ))

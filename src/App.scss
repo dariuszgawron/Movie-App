@@ -78,6 +78,10 @@ button {
   width: 100%;
   max-width: 1400px;
   margin: auto;
+
+  @media screen and (max-width: 1599px) {
+    max-width: 1200px;
+  }
 }
 
 .section {

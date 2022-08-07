@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { mediaTypes} from "../../api/tmdbApi";
 
@@ -7,16 +7,18 @@ import './MediaSearch.scss';
 
 const MediaSearch = props => {
     const navigate = useNavigate();
-
+    const { category } = useParams();
     const [keyword,setKeyword] = useState(props.keyword ? props.keyword : '');
+    const [mediaType,setMediaType] = useState(category ? mediaTypes[category] : 'movie');
 
     const searchKeyword = useCallback(
         () => {
             if(keyword.trim().length > 0) {
-                navigate(`/${mediaTypes[props.mediaType]}/search/${keyword}`);
+                // navigate(`/${mediaTypes[props.mediaType]}/search/${keyword}`);
+                navigate(`/${mediaType}/search/${keyword}`);
             }
         },
-        [keyword,props.mediaType,navigate]
+        [keyword,mediaType,navigate]
     );
 
     useEffect(() => {
@@ -25,7 +27,6 @@ const MediaSearch = props => {
             if(event.keyCode === 13) {
                 searchKeyword();
             }
-            
         };
         document.addEventListener('keyup',handleEnter);
         return () => {
@@ -42,6 +43,15 @@ const MediaSearch = props => {
                 value={keyword}
                 onChange={(event) => setKeyword(event.target.value)}
             />
+            <select
+                className="media-search__select"
+                placeholder="Choose media type"
+                value={mediaType}
+                onChange={event => setMediaType(event.target.value)}
+            >
+                <option value="movie">movie</option>
+                <option value="tv">serie</option>
+            </select>
             <button className="media-search__button" onClick={searchKeyword}>
                 <i className='media-search__button-icon bx bx-search' ></i>
             </button>

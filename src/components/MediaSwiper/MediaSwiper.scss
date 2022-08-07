@@ -2,7 +2,6 @@
 
     &__navigation {
         position: absolute;
-        // top: 35%;
         top: 50%;
         transform: translateY(-50%);
         width: 40px;
@@ -31,5 +30,6 @@
 }
 
 .swiper-slide {
-    width: 220px;
+    // width: 220px;
+    width: 100%;
 }

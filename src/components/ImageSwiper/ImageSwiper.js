@@ -45,10 +45,10 @@ const ImageSwiper = () => {
                 ))
             }
                 <div className="images__navigation images__navigation--prev" ref={navigationPrevRef}>
-                    <i class='images__navigation-icon bx bx-chevron-left'></i>
+                    <i className='images__navigation-icon bx bx-chevron-left'></i>
                 </div>
                 <div className="images__navigation images__navigation--next" ref={navigationNextRef}>
-                    <i class='images__navigation-icon bx bx-chevron-right'></i>
+                    <i className='images__navigation-icon bx bx-chevron-right'></i>
                 </div>
             </Swiper>
         </div>

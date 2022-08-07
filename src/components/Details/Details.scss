@@ -46,12 +46,15 @@
     }
 
     &__poster {
-        width: 300px;
+        width: 250px;
         // height: ;
 
         &-image {
+            width: 100%;
+            min-width: 250px;
             border-radius: 0 1rem 0 1rem;
-            box-shadow: 0 0 3px gray;
+            box-shadow: 0 0 1.5rem rgb(226, 226, 226);
+            object-fit: contain;
         }
     }
 
@@ -97,7 +100,7 @@
     }
 
     &__type {
-        margin-bottom: .5rem;
+        margin-bottom: -.5rem;
         font-size: var(--font-size-4);
         font-weight: var(--font-weight-bold);
         color: var(--primary-color);

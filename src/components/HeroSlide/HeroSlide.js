@@ -67,7 +67,10 @@ const HeroSlide = props => {
                             <i className='button__icon bx bx-show'></i>
                             See more
                         </Button>
-                        <Button onClick={() => navigate(`/movie/${props.item.id}`)}>
+                        <Button 
+                            className="button--danger"
+                            onClick={() => navigate(`/movie/${props.item.id}`)} 
+                        >
                             <i className='button__icon bx bx-play-circle'></i>
                             Watch trailer
                         </Button>

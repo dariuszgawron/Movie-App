@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import tmdbApi, { mediaTypes, movieCategories, tvCategories } from "../../api/tmdbApi";
 
 import MediaCard from "../MediaCard/MediaCard";
-import MediaSearch from "../MediaSearch/MediaSearch";
 import Button from "../Button/Button";
 
 import './MediaList.scss';
@@ -51,27 +50,24 @@ const MovieList = props => {
     }
 
     return (
-        <>
-            <div className="media-section">
-                <MediaSearch mediaType={props.mediaType} keyword={keyword} />
-            </div>
-            <div className="media-list">
-                {
-                    media.map((item, index) => {
-                        return <MediaCard mediaType={props.mediaType} item={item} key={index} />
-                    })
-                }
+        <div className="media-list">
+            <div className="media-list__items">
+            {
+                media.map((item, index) => {
+                    return <MediaCard mediaType={props.mediaType} item={item} key={index} />
+                })
+            }
             </div>
             {
-                (currentPage<totalPages)
+                (currentPage < totalPages)
                 ? (
-                    <div className="media-button">
+                    <div className="media-list__button">
                         <Button onClick={loadMore}>Load more</Button>
                     </div>
                 )
                 : null
             }
-        </>
+        </div>
     )
 };
 

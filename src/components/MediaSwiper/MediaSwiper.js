@@ -14,11 +14,13 @@ import tmdbApi from '../../api/tmdbApi';
 import MediaCard from '../MediaCard/MediaCard';
 
 import './MediaSwiper.scss';
+import { useParams } from 'react-router-dom';
 
 const MediaSwiper = props => {
     const [media, setMedia] = useState([]);
     const navigationPrevRef = useRef(null);
     const navigationNextRef = useRef(null);
+    const { type, id } = useParams();
 
     useEffect(() => {
         const getMedias = async () => {
@@ -28,7 +30,8 @@ const MediaSwiper = props => {
             if(props.mediaCategory !== 'similar') {
                 response = await tmdbApi.getMediaList(props.mediaType,props.mediaCategory, {queryParams});
             } else {
-                response = await tmdbApi.getSimilarMedia(props.mediaType, props.mediaId);
+                // response = await tmdbApi.getSimilarMedia(props.mediaType, props.mediaId);
+                response = await tmdbApi.getSimilarMedia(type,id);
             };
 
             setMedia(response.results);
@@ -42,7 +45,7 @@ const MediaSwiper = props => {
             <Swiper
                 modules={[Navigation]}
                 spaceBetween={15}
-                slidesPerView={'auto'}
+                slidesPerView={6}
                 navigation={{
                     prevEl: navigationPrevRef.current,
                     nextEl: navigationNextRef.current

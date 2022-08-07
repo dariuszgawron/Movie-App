@@ -14,6 +14,7 @@ import './Details.scss';
 const Details = () => {
     const {type,id} = useParams();
     const [item,setItems] = useState(null);
+    // const runtime = (type==='movie') ? item.runtime : item.episode_run_time;
 
     useEffect(() => {
         const getDetails = async () => {
@@ -31,7 +32,7 @@ const Details = () => {
                     <>
                         <div className="media-details__header container">
                             <div className="media-details__header-rate">
-                                {`${item.vote_average.toFixed(1)} / 10`}
+                                {`${item.vote_average.toFixed(1)}`}
                             </div>
                             <img className="media-details__header-background" src={tmdbConfig.imageUrl(imageSize.original,item.backdrop_path || item.poster_path)} alt='' />
                             <div className="media-details__header-content">
@@ -54,10 +55,11 @@ const Details = () => {
                                     </div>
                                     <div className="media-details__group">
                                         <div className="media-details__publish-date">
-                                            {new Date(item.release_date).getFullYear()}
+                                            {new Date(item.release_date || item.first_air_date).getFullYear() || '-'}
                                         </div>
                                         <div className="media-details__runtime">
                                             {`${Math.floor(item.runtime/60) || 0}h ${item.runtime%60 || 0}m`}
+                                            
                                         </div>
                                     </div>
                                     
@@ -86,7 +88,7 @@ const Details = () => {
                             <div className="section__header">
                                 <h2 className="section__title">Trailers</h2>
                             </div>
-                            <VideoSwiper />
+                            {/* <VideoSwiper /> */}
                         </div>
 
                         <div className="media-details__similar container">
