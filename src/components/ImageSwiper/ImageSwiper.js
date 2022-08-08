@@ -20,7 +20,6 @@ const ImageSwiper = () => {
     useEffect(() => {
         const getImages = async () => {
             const response = await tmdbApi.getMediaImages(type,id);
-            console.log(response.backdrops);
             setImages(response.backdrops);
         };
         getImages();

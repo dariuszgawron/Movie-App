@@ -53,6 +53,16 @@
         padding: 0 1.5rem;
         // background-color: rgba(53, 53, 53, 0.903);
         color: rgb(239, 239, 239);
+
+        // @media screen and (max-width: 992px) {
+        //     bottom: 0;
+        //     left: 0;
+        //     width: 100vw;
+        //     display: flex;
+        //     flex-direction: row;
+        //     height: auto;
+
+        // }
     }
 
     &__list {

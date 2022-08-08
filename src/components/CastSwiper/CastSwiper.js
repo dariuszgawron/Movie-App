@@ -29,7 +29,7 @@ const CastSwiper = () => {
             <Swiper
                 modules={[Navigation]}
                 spaceBetween={15}
-                slidesPerView={'auto'}
+                slidesPerView={7}
                 navigation={{
                     prevEl: navigationPrevRef.current,
                     nextEl: navigationNextRef.current

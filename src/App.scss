@@ -80,7 +80,10 @@ button {
   margin: auto;
 
   @media screen and (max-width: 1599px) {
-    max-width: 1200px;
+    width: auto;
+    margin-left: 6rem;
+    margin-right: 6rem;
+    align-self: center;
   }
 }
 

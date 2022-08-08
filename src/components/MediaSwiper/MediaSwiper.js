@@ -1,20 +1,17 @@
 import React, {useState, useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
-// import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
+import { useParams } from 'react-router-dom';
  
 import 'swiper/css';
 import 'swiper/css/navigation';
 
 import tmdbApi from '../../api/tmdbApi';
-// import axiosConfig from '../../api/axiosConfig';
-// import tmdbConfig, {imageSize} from '../../api/tmdbConfig';
 
 import MediaCard from '../MediaCard/MediaCard';
 
 import './MediaSwiper.scss';
-import { useParams } from 'react-router-dom';
 
 const MediaSwiper = props => {
     const [media, setMedia] = useState([]);
@@ -30,7 +27,6 @@ const MediaSwiper = props => {
             if(props.mediaCategory !== 'similar') {
                 response = await tmdbApi.getMediaList(props.mediaType,props.mediaCategory, {queryParams});
             } else {
-                // response = await tmdbApi.getSimilarMedia(props.mediaType, props.mediaId);
                 response = await tmdbApi.getSimilarMedia(type,id);
             };
 
@@ -45,10 +41,24 @@ const MediaSwiper = props => {
             <Swiper
                 modules={[Navigation]}
                 spaceBetween={15}
-                slidesPerView={6}
+                slidesPerView={2}
                 navigation={{
                     prevEl: navigationPrevRef.current,
                     nextEl: navigationNextRef.current
+                }}
+                breakpoints= {{
+                    578: {
+                        slidesPerView: 3
+                    },
+                    768: {
+                        slidesPerView: 4
+                    },
+                    992: {
+                        slidesPerView: 5
+                    },
+                    1200: {
+                        slidesPerView: 6
+                    }
                 }}
             >
             {

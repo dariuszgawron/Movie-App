@@ -10,6 +10,7 @@ const MediaSearch = props => {
     const { category } = useParams();
     const [keyword,setKeyword] = useState(props.keyword ? props.keyword : '');
     const [mediaType,setMediaType] = useState(category ? mediaTypes[category] : 'movie');
+    const mediaTypeClass = props.mediaTypeClass;
 
     const searchKeyword = useCallback(
         () => {
@@ -44,7 +45,7 @@ const MediaSearch = props => {
                 onChange={(event) => setKeyword(event.target.value)}
             />
             <select
-                className="media-search__select"
+                className={`media-search__select ${mediaTypeClass}`}
                 placeholder="Choose media type"
                 value={mediaType}
                 onChange={event => setMediaType(event.target.value)}

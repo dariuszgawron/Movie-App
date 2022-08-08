@@ -17,11 +17,11 @@ const Catalog = () => {
                 {(type===mediaTypes.movie) ? 'Movies' : 'Series'}
             </PageHeader>
             <MediaFilter mediaType={type} keyword={keyword} />
-            <div className="container">
+            {/* <div className="container"> */}
                 <div className="section">
                     <MediaList mediaType={type}/>
                 </div>
-            </div>
+            {/* </div> */}
         </main>
     )
 };

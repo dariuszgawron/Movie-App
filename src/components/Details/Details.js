@@ -4,6 +4,7 @@ import {useParams} from 'react-router';
 import tmdbApi from "../../api/tmdbApi";
 import tmdbConfig, {imageSize } from "../../api/tmdbConfig";
 
+import MediaHeader from "../MediaHeader/MediaHeader";
 import CastSwiper from "../CastSwiper/CastSwiper";
 import VideoSwiper from "../VideoSwiper/VideoSwiper";
 import MediaSwiper from "../MediaSwiper/MediaSwiper";
@@ -31,45 +32,9 @@ const Details = () => {
                 item && (
                     <>
                         <div className="media-details__header container">
-                            <div className="media-details__header-rate">
-                                {`${item.vote_average.toFixed(1)}`}
-                            </div>
-                            <img className="media-details__header-background" src={tmdbConfig.imageUrl(imageSize.original,item.backdrop_path || item.poster_path)} alt='' />
-                            <div className="media-details__header-content">
-                                <div className="media-details__poster">
-                                    <img className="media-details__poster-image" src={tmdbConfig.imageUrl(imageSize.original,item.poster_path || item.backdrop_path)} alt='' />
-                                </div>
-                                <div className="media-details__info">
-                                    <div className="media-details__type">
-                                        {'TV SHOW'}
-                                    </div>
-                                    <div className="media-details__title">
-                                        <h1 className="media-details__title-text">{item.title || item.name}</h1>
-                                    </div>
-                                    <div className="media-details__genres">
-                                        {
-                                            item.genres && item.genres.map((genre,index) => (
-                                                <span className="media-details__genres-item" key={index}>{genre.name}</span>
-                                            ))
-                                        }
-                                    </div>
-                                    <div className="media-details__group">
-                                        <div className="media-details__publish-date">
-                                            {new Date(item.release_date || item.first_air_date).getFullYear() || '-'}
-                                        </div>
-                                        <div className="media-details__runtime">
-                                            {`${Math.floor(item.runtime/60) || 0}h ${item.runtime%60 || 0}m`}
-                                            
-                                        </div>
-                                    </div>
-                                    
-                                    <p className="media-details__overview">
-                                        {item.overview}
-                                    </p>
-                                </div>
-                            </div>
+                            <MediaHeader item={item} mediaType={type} />
                         </div>
-                        
+
                         <div className="media-details__casts container">
                             <div className="section__header">
                                 <h2 className="section__title">Cast</h2>
