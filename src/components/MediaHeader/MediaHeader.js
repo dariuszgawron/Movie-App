@@ -6,7 +6,7 @@ import "./MediaHeader.scss";
 
 const MediaHeader = props => {
     const item = props.item;
-    const runtime = (props.type==='movie') ? item.runtime : item.episode_run_time;
+    const runtime = item.runtime || item.episode_run_time;
     const releaseDate = new Date(item.release_date || item.first_air_date);
 
     return (

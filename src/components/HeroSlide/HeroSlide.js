@@ -32,7 +32,7 @@ const HeroSlide = props => {
             <div className="hero-slide__overlay"></div>
             <div className="hero-slide__content container">
                 <div className="hero-slide__poster">
-                    <img src={tmdbConfig.imageUrl(imageSize.w500,props.item.poster_path)} alt='' />
+                    <img className="hero-slide__poster-image" src={tmdbConfig.imageUrl(imageSize.w500,props.item.poster_path)} alt='' />
                 </div>
                 <div className="hero-slide__info">
                     <h2 className="hero-slide__title">

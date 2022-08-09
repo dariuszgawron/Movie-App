@@ -40,6 +40,10 @@
         // max-height: 50%;
         width: 100%;
         height: auto;
+
+        &-image {
+            border-radius: 0 1rem 0 1rem;
+        }
     }
 
     &__info {

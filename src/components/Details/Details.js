@@ -53,7 +53,7 @@ const Details = () => {
                             <div className="section__header">
                                 <h2 className="section__title">Trailers</h2>
                             </div>
-                            {/* <VideoSwiper /> */}
+                            <VideoSwiper />
                         </div>
 
                         <div className="media-details__similar container">

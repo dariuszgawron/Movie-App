@@ -37,6 +37,10 @@
         &--hidden {
             display: none;
         }
+
+        &-option {
+            background-color: var(--background-secondary-color);
+        }
     }
 
     &__button {

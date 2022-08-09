@@ -1,9 +1,9 @@
 .media-header {
     position: relative;
     height: 80vh;
+    // height: auto;
+    min-height: 80vh;
     margin-bottom: 3rem;
-    // background-position: center;
-    // bac
 
     &::before {
         content: "";
@@ -39,12 +39,20 @@
         left: 0;
         padding: 2rem;
         display: flex;
-        column-gap: 2rem;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 2rem;
         text-shadow: 0 0 25px rgb(0, 0, 0);
+
+        @media screen and (min-width: 992px) {
+            flex-direction: row;
+            column-gap: 2rem;
+        }
     }
 
     &__poster {
         width: 250px;
+        // display: none;
         // height: ;
 
         &-image {
@@ -53,6 +61,11 @@
             border-radius: 0 1rem 0 1rem;
             box-shadow: 0 0 1.5rem rgb(226, 226, 226);
             object-fit: contain;
+        }
+        
+        @media screen and (min-width: 992px) {
+            // display: block;
+            
         }
     }
 

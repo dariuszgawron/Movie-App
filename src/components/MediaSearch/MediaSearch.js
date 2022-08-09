@@ -50,8 +50,8 @@ const MediaSearch = props => {
                 value={mediaType}
                 onChange={event => setMediaType(event.target.value)}
             >
-                <option value="movie">movie</option>
-                <option value="tv">serie</option>
+                <option className="media-search__select-option" value="movie">movie</option>
+                <option className="media-search__select-option" value="tv">series</option>
             </select>
             <button className="media-search__button" onClick={searchKeyword}>
                 <i className='media-search__button-icon bx bx-search' ></i>

@@ -22,7 +22,9 @@ const ImageSwiper = () => {
             const response = await tmdbApi.getMediaImages(type,id);
             setImages(response.backdrops);
         };
-        getImages();
+        const getImagesTimeout = setTimeout(getImages(),200);
+        clearTimeout(getImagesTimeout);
+        // getImages();
     },[type,id]);
     
     return (
@@ -30,10 +32,18 @@ const ImageSwiper = () => {
             <Swiper
                 modules={[Navigation]}
                 spaceBetween={15}
-                slidesPerView={4}
+                slidesPerView={2}
                 navigation={{
                     prevEl: navigationPrevRef.current,
                     nextEl: navigationNextRef.current
+                }}
+                breakpoints= {{
+                    786: {
+                        slidesPerView: 3
+                    },
+                    1200: {
+                        slidesPerView: 4
+                    }
                 }}
             >
             {

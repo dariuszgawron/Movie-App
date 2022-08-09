@@ -23,7 +23,9 @@ const VideoSwiper = () => {
             const response = await tmdbApi.getMediaVideos(type,id);
             setVideos(response.results);
         };
-        getVideos();
+        const getVideosTimeout = setTimeout(getVideos(),300);
+        clearTimeout(getVideosTimeout);
+        // getVideos();
     },[type,id]);
 
     return (
@@ -31,10 +33,18 @@ const VideoSwiper = () => {
             <Swiper
                 modules={[Navigation]}
                 spaceBetween={15}
-                slidesPerView={4}
+                slidesPerView={2}
                 navigation={{
                     prevEl: navigationPrevRef.current,
                     nextEl: navigationNextRef.current
+                }}
+                breakpoints= {{
+                    882: {
+                        slidesPerView: 3
+                    },
+                    1200: {
+                        slidesPerView: 4
+                    }
                 }}
             >
                 {
