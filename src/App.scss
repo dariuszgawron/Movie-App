@@ -5,8 +5,8 @@
 :root {
   /* FONTS */
   --font-family: 'Poppins', sans-serif;
-  --font-size-1: 2rem;
-  --font-size-2: 1.4rem;
+  --font-size-1: 1.9rem;
+  --font-size-2: 1.3rem;
   --font-size-3: 1rem;
   // --font-size-3: 1.25rem;
   --font-size-4: .938rem;
@@ -65,8 +65,13 @@ body {
   // padding: 3rem 0 0 4.5rem;
   // padding-left: 4.5rem;
   padding-top: 5rem;
+  padding-bottom: 2rem;
   background-color: var(--background-primary-color);
   color: var(--text-color-normal);
+
+  @media screen and (min-width: 992px) {
+    padding-bottom: 0;
+  }
 }
 
 body,
@@ -129,6 +134,7 @@ button {
   }
 
   &__title {
+    font-size: var(--font-size-3);
     color: white;
   }
 

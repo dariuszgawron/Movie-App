@@ -39,9 +39,9 @@ const HeroSlide = props => {
                         {props.item.title}
                     </h2>
                     <div className="hero-slide__details">
-                        <span className="hero-slide__original-title">
+                        {/* <span className="hero-slide__original-title">
                             {props.item.original_title}
-                        </span>
+                        </span> */}
                         <span className="hero-slide__release-year">
                             {releaseYear}
                         </span>

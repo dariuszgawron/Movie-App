@@ -3,7 +3,7 @@
     &__header {
         position: relative;
         height: 80vh;
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
         // background-position: center;
         // bac
 
@@ -144,7 +144,7 @@
         color: var(--text-color-light);
     }
 
-    &__cast {
-        
+    &__casts, &__images, &__trailers {
+        margin-bottom: 1rem;
     }
 }
