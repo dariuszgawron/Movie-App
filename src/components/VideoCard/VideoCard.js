@@ -10,7 +10,7 @@ const VideoCard = props => {
 
     useEffect(() => {
         const iframeHeight = `${iframeRef.current.offsetWidth * 9 / 16} px`;
-        iframeRef.current.setAttribute('height',iframeHeight);
+        iframeRef.current.setAttribute('height', iframeHeight);
     });
 
     return (

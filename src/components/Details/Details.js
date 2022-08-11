@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useParams} from 'react-router';
 
 import tmdbApi from "../../api/tmdbApi";
-import tmdbConfig, {imageSize } from "../../api/tmdbConfig";
+// import tmdbConfig, {imageSize } from "../../api/tmdbConfig";
 
 import MediaHeader from "../MediaHeader/MediaHeader";
 import CastSwiper from "../CastSwiper/CastSwiper";
@@ -13,18 +13,17 @@ import ImageSwiper from "../ImageSwiper/ImageSwiper";
 import './Details.scss';
 
 const Details = () => {
-    const {type,id} = useParams();
-    const [item,setItems] = useState(null);
-    // const runtime = (type==='movie') ? item.runtime : item.episode_run_time;
+    const {type, id} = useParams();
+    const [item, setItems] = useState(null);
 
     useEffect(() => {
         const getDetails = async () => {
-            let response = await tmdbApi.getMediaDetails(type,id,{params: {}} );
+            let response = await tmdbApi.getMediaDetails(type, id, {params: {}} );
             setItems(response);
-            window.scrollTo(0,0);
+            window.scrollTo(0, 0);
         };
         getDetails();
-    }, [type,id]);
+    }, [type, id]);
 
     return (
         <div className="media-details">
@@ -46,14 +45,14 @@ const Details = () => {
                             <div className="section__header">
                                 <h2 className="section__title">Images</h2>
                             </div>
-                            <ImageSwiper />
+                            <ImageSwiper id={id} mediaType={type} title={item.title || item.name} />
                         </div>
 
                         <div className="media-details__trailers container">
                             <div className="section__header">
                                 <h2 className="section__title">Trailers</h2>
                             </div>
-                            <VideoSwiper />
+                            <VideoSwiper mediaType={type} mediaId={id}/>
                         </div>
 
                         <div className="media-details__similar container">
@@ -64,12 +63,9 @@ const Details = () => {
                                 <MediaSwiper mediaType={type} mediaCategory="similar" mediaId={id}/>
                             </div>
                         </div>
-                        
                     </>
                 )
             }
-            
-            
         </div>
     )
 };

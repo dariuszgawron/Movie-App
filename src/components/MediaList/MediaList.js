@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import tmdbApi, { mediaTypes, movieCategories, tvCategories } from "../../api/tmdbApi";
 
 import MediaCard from "../MediaCard/MediaCard";
@@ -8,22 +7,20 @@ import Button from "../Button/Button";
 import './MediaList.scss';
 
 const MovieList = props => {
-    const [media,setMedia] = useState([]);
-    const [currentPage,setCurrentPage] = useState(1);
-    const [totalPages,setTotalPages] = useState(1);
-
-    const {keyword} = useParams();
+    const [media, setMedia] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
 
     useEffect(() => {
         const getMedia = async () => {
             let response = null;
             let queryParams = {};
-            if(keyword===undefined) {
+            if(props.keyword===undefined) {
                 const mediaCategory = (props.mediaType===mediaTypes.movie) ? movieCategories.popular : tvCategories.popular;
                 response = await tmdbApi.getMediaList(props.mediaType, mediaCategory, {queryParams});
             } else {
                 queryParams = {
-                    query: keyword
+                    query: props.keyword
                 };
                 response = await tmdbApi.searchMedia(props.mediaType, {params: queryParams});
             }
@@ -31,18 +28,18 @@ const MovieList = props => {
             setTotalPages(response.total_pages);
         };
         getMedia();
-    }, [props.mediaType,keyword]);
+    }, [props.mediaType, props.keyword]);
 
     const loadMore = async () => {
         let response = null;
         const queryParams = {
             page: currentPage+1
         };
-        if(keyword===undefined) {
+        if(props.keyword===undefined) {
             const mediaCategory = (props.mediaType===mediaTypes.movie) ? movieCategories.popular : tvCategories.popular;
             response = await tmdbApi.getMediaList(props.mediaType, mediaCategory, {params: queryParams});
         } else {
-            queryParams.query = keyword;
+            queryParams.query = props.keyword;
             response = await tmdbApi.searchMedia(props.mediaType, {params: queryParams});
         }
         setMedia([...media,...response.results]);

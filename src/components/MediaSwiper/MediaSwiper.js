@@ -1,8 +1,7 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
-import { useParams } from 'react-router-dom';
  
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -17,7 +16,6 @@ const MediaSwiper = props => {
     const [media, setMedia] = useState([]);
     const navigationPrevRef = useRef(null);
     const navigationNextRef = useRef(null);
-    const { type, id } = useParams();
 
     useEffect(() => {
         const getMedias = async () => {
@@ -25,16 +23,15 @@ const MediaSwiper = props => {
             const queryParams = {};
 
             if(props.mediaCategory !== 'similar') {
-                response = await tmdbApi.getMediaList(props.mediaType,props.mediaCategory, {queryParams});
+                response = await tmdbApi.getMediaList(props.mediaType, props.mediaCategory, {queryParams});
             } else {
-                response = await tmdbApi.getSimilarMedia(type,id);
+                response = await tmdbApi.getSimilarMedia(props.mediaType, props.mediaId);
             };
 
             setMedia(response.results);
         };
         getMedias();
-
-    }, []);
+    }, [props.mediaType, props.mediaCategory, props.mediaId]);
 
     return (
         <div className='media-swiper'>
@@ -62,7 +59,7 @@ const MediaSwiper = props => {
                 }}
             >
             {
-                media.map((item,index) => (
+                media.map((item, index) => (
                     <SwiperSlide key={index}>
                         <MediaCard item={item} mediaType={props.mediaType} />
                     </SwiperSlide>

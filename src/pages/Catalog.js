@@ -19,7 +19,7 @@ const Catalog = () => {
             <MediaFilter mediaType={type} keyword={keyword} />
             {/* <div className="container"> */}
                 <div className="section">
-                    <MediaList mediaType={type}/>
+                    <MediaList mediaType={type} keyword={keyword} />
                 </div>
             {/* </div> */}
         </main>

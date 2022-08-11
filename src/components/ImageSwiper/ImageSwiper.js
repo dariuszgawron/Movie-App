@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
 import { Swiper, SwiperSlide} from "swiper/react";
 import { Navigation } from 'swiper'
 
@@ -11,21 +10,18 @@ import tmdbApi from "../../api/tmdbApi";
 
 import './ImageSwiper.scss';
 
-const ImageSwiper = () => {
-    const {type,id} = useParams();
-    const [images,setImages] = useState([]);
+const ImageSwiper = props => {
+    const [images, setImages] = useState([]);
     const navigationPrevRef = useRef(null);
     const navigationNextRef = useRef(null);
  
     useEffect(() => {
         const getImages = async () => {
-            const response = await tmdbApi.getMediaImages(type,id);
+            const response = await tmdbApi.getMediaImages(props.mediaType, props.id);
             setImages(response.backdrops);
         };
-        const getImagesTimeout = setTimeout(getImages(),200);
-        clearTimeout(getImagesTimeout);
-        // getImages();
-    },[type,id]);
+        getImages();
+    }, [props.mediaType, props.id]);
     
     return (
         <div className="images">
@@ -47,9 +43,9 @@ const ImageSwiper = () => {
                 }}
             >
             {
-                images.map((image,index) => (
+                images.map((image, index) => (
                     <SwiperSlide key={index}>
-                        <img className="images__card" key={index} src={tmdbConfig.imageUrl(imageSize.original,image.file_path)} alt='' />
+                        <img className="images__card" key={index} src={tmdbConfig.imageUrl(imageSize.original, image.file_path)} alt={`${props.title} - gallery`} />
                     </SwiperSlide>
                 ))
             }

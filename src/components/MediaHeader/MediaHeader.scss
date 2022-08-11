@@ -1,7 +1,6 @@
 .media-header {
     position: relative;
     height: 80vh;
-    // height: auto;
     min-height: 80vh;
     margin-bottom: 3rem;
 
@@ -24,7 +23,7 @@
         font-weight: var(--font-weight-bold);
         color: var(--text-color-light);
         background-color: var(--primary-color);
-        border-radius: 0 .8rem 0 .8rem;
+        border-radius: 0 .8rem;
     }
 
     &__background {
@@ -54,23 +53,19 @@
     &__poster {
         width: 250px;
         display: none;
-        // height: ;
 
         &-image {
             width: 100%;
             min-width: 250px;
-            border-radius: 0 1rem 0 1rem;
+            border-radius: 0 1rem;
             box-shadow: 0 0 1.5rem rgb(226, 226, 226);
             object-fit: contain;
         }
         
         @media screen and (min-width: 992px) {
             display: block;
-            
         }
     }
-
-
 
     &__info {
 
@@ -103,7 +98,7 @@
         &-item {
             padding: .2rem .5rem;
             background-color: var(--primary-color);
-            border-radius: 0 .7rem 0 .7rem;
+            border-radius: 0 .7rem;
         }
     }
 

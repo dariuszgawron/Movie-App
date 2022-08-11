@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import tmdbConfig, {imageSize} from "../../api/tmdbConfig";
 import { mediaTypes } from "../../api/tmdbApi";
@@ -9,11 +9,11 @@ import './MediaCard.scss';
 
 const MediaCard = props => {
     const linkUrl = `/${mediaTypes[props.mediaType]}/${props.item.id}`;
-    const movieCover = tmdbConfig.imageUrl(imageSize.w500,props.item.poster_path || props.item.backdrop_path);
+    const movieCover = tmdbConfig.imageUrl(imageSize.w500, props.item.poster_path || props.item.backdrop_path);
     return (
         <div className="media-card swiper-slide">
             <Link className="media-card__link" to={linkUrl}>
-                <img className="media-card__img" src={movieCover} alt="" />
+                <img className="media-card__img" src={movieCover} alt={`${props.item.title || props.item.name}`} />
                 <div className="media-card__data">
                     <div className="media-card__rate">
                         <i className='media-card__rate-icon bx bxs-star'></i>

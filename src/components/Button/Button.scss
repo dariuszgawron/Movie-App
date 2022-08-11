@@ -3,8 +3,7 @@
     display: flex;
     align-items: center;
     gap: .5rem;
-    // border-radius: .3rem;
-    border-radius: 0 .8rem 0 .8rem;
+    border-radius: 0 .8rem;
 
     &:hover {
         box-shadow: 0 0 8px 3px rgb(216, 216, 216);

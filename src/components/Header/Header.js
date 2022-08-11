@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import {Link,useLocation} from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import MediaSearch from "../MediaSearch/MediaSearch";
 
@@ -53,7 +53,7 @@ const Header = () => {
                 <div className="nav__menu">
                     <ul className="nav__list container">
                         {
-                            navLinks.map((link,index) => (
+                            navLinks.map((link, index) => (
                                 <li className={`nav__list-item ${index === activeLink ? 'nav__list-item--active' : ''}`} key={index}>
                                     <Link className="nav__link" to={link.pathname}>
                                         <i className={`nav__link-icon ${link.iconclass}`}></i>

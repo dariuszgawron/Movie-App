@@ -28,11 +28,11 @@ const HeroSlide = props => {
 
     return (
         <div className={`hero-slide ${heroSlideClass}`}>
-            <img className="hero-slide__background" src={backgroundImage} alt='' />
+            <img className="hero-slide__background" src={backgroundImage} alt={`${props.item.title} - background`} />
             <div className="hero-slide__overlay"></div>
             <div className="hero-slide__content container">
                 <div className="hero-slide__poster">
-                    <img className="hero-slide__poster-image" src={tmdbConfig.imageUrl(imageSize.w500,props.item.poster_path)} alt='' />
+                    <img className="hero-slide__poster-image" src={tmdbConfig.imageUrl(imageSize.w500,props.item.poster_path)} alt={`${props.item.title} - poster`} />
                 </div>
                 <div className="hero-slide__info">
                     <h2 className="hero-slide__title">
@@ -51,7 +51,7 @@ const HeroSlide = props => {
                     </div>
                     
                     <div className="hero-slide__rate">
-                        <i className='hero-slide__rate-icon bx bxs-star' ></i>
+                        <i className='hero-slide__rate-icon bx bxs-star'></i>
                         <span className="hero-slide__rate-average">
                             {props.item.vote_average}
                         </span>
@@ -76,7 +76,6 @@ const HeroSlide = props => {
                         </Button>
                     </div>
                 </div>
-                
             </div>
         </div>
     )

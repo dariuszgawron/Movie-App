@@ -1,5 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 
@@ -12,21 +11,18 @@ import VideoCard from "../VideoCard/VideoCard";
 
 import './VideoSwiper.scss';
 
-const VideoSwiper = () => {
-    const {type,id} = useParams();
-    const [videos,setVideos] = useState([]);
+const VideoSwiper = props => {
+    const [videos, setVideos] = useState([]);
     const navigationPrevRef = useRef(null);
     const navigationNextRef = useRef(null);
 
     useEffect(() => {
         const getVideos = async () => {
-            const response = await tmdbApi.getMediaVideos(type,id);
+            const response = await tmdbApi.getMediaVideos(props.mediaType, props.mediaId);
             setVideos(response.results);
         };
-        const getVideosTimeout = setTimeout(getVideos(),300);
-        clearTimeout(getVideosTimeout);
-        // getVideos();
-    },[type,id]);
+        getVideos();
+    }, [props.mediaType, props.mediaId]);
 
     return (
         <div className="trailers">
@@ -66,11 +62,10 @@ const VideoSwiper = () => {
                 </Swiper>
             ) : (
                 <div className="trailers__info">
-                    <i class='trailers__info-icon bx bx-error-circle'></i>
+                    <i className='trailers__info-icon bx bx-error-circle'></i>
                     <span className="trailers__info-text">No trailers for the title</span>
                 </div>
             )}
-            
         </div>
     )
 };

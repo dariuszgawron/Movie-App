@@ -3,7 +3,6 @@ import SwiperCore, {Autoplay, EffectCoverflow} from "swiper";
 import { Swiper, SwiperSlide} from "swiper/react";
 
 import tmdbApi, {mediaTypes, movieCategories} from "../../api/tmdbApi";
-import tmdbConfig, {imageSize} from "../../api/tmdbConfig";
 
 import HeroSlide from "../HeroSlide/HeroSlide";
 

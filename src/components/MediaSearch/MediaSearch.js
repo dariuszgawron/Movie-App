@@ -19,7 +19,7 @@ const MediaSearch = props => {
                 navigate(`/${mediaType}/search/${keyword}`);
             }
         },
-        [keyword,mediaType,navigate]
+        [keyword, mediaType, navigate]
     );
 
     useEffect(() => {
@@ -29,11 +29,11 @@ const MediaSearch = props => {
                 searchKeyword();
             }
         };
-        document.addEventListener('keyup',handleEnter);
+        document.addEventListener('keyup', handleEnter);
         return () => {
-            document.removeEventListener('keyup',handleEnter);
+            document.removeEventListener('keyup', handleEnter);
         }
-    }, [keyword,searchKeyword])
+    }, [keyword, searchKeyword])
 
     return (
         <div className="media-search">

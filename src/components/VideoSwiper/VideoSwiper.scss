@@ -1,5 +1,4 @@
 .trailers {
-    // margin-bottom: 2rem;
 
     &__navigation {
         position: absolute;
@@ -13,7 +12,7 @@
         z-index: 2;
         color: var(--primary-color);
         font-size: var(--font-size-1);
-        text-shadow: 0px 0px 5px black;
+        text-shadow: 0px 0px 5px rgb(0, 0, 0);
         cursor: pointer;
 
         &--prev {

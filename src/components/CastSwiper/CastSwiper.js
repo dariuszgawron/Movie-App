@@ -9,7 +9,6 @@ import tmdbApi from "../../api/tmdbApi";
 import tmdbConfig, { imageSize } from "../../api/tmdbConfig";
 
 import './CastSwiper.scss';
-import { wait } from "@testing-library/user-event/dist/utils";
 
 const CastSwiper = () => {
     const {type, id} = useParams();
@@ -19,12 +18,10 @@ const CastSwiper = () => {
 
     useEffect(() => {
         const getCasts = async () => {
-            const response = await tmdbApi.getMediaCredits(type,id);
+            const response = await tmdbApi.getMediaCredits(type, id);
             setCasts(response.cast.slice(0,20));
         };
-        const getCastsTimeout = setTimeout(getCasts(),100);
-        clearTimeout(getCastsTimeout);
-        // getCasts();
+        getCasts();
     }, [type,id]);
 
     return (
@@ -52,18 +49,17 @@ const CastSwiper = () => {
                     }
                 }}
             >
-            {
-                casts.map((cast,index) => (
-                    <SwiperSlide key={index}>
-                        <div className="casts__item" key={index}>
-                            <img className="casts__item-image" src={tmdbConfig.imageUrl(imageSize.w500,cast.profile_path || '')} alt='' />
-                            <p className="casts__item-name">{cast.name}</p>
-                            <p className="casts__item-character">{cast.character}</p>
-                            {/* {cast.popularity} */}
-                        </div>
-                    </SwiperSlide>
-                ))
-            }
+                {
+                    casts.map((cast,index) => (
+                        <SwiperSlide key={index}>
+                            <div className="casts__item" key={index}>
+                                <img className="casts__item-image" src={tmdbConfig.imageUrl(imageSize.w500, cast.profile_path || '')} alt={`${cast.name} / ${cast.character}`} />
+                                <p className="casts__item-name">{cast.name}</p>
+                                <p className="casts__item-character">{cast.character}</p>
+                            </div>
+                        </SwiperSlide>
+                    ))
+                }
                 <div className="casts__navigation casts__navigation--prev" ref={navigationPrevRef}>
                     <i className='casts__navigation-icon bx bx-chevron-left'></i>
                 </div>
@@ -71,7 +67,6 @@ const CastSwiper = () => {
                     <i className='casts__navigation-icon bx bx-chevron-right'></i>
                 </div>
             </Swiper>
-            
         </div>
     )
 };
