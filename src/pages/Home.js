@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import {mediaTypes,movieCategories,tvCategories} from '../api/tmdbApi';
+import { mediaTypes, movieCategories, tvCategories } from '../api/tmdbApi';
 
 import HeroSlider from '../components/HeroSlider/HeroSlider';
 import MediaSwiper from '../components/MediaSwiper/MediaSwiper';
