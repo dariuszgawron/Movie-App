@@ -38,14 +38,14 @@ const Details = () => {
                             <div className="section__header">
                                 <h2 className="section__title">Cast</h2>
                             </div>
-                            <CastSwiper />
+                            <CastSwiper mediaType={type} mediaId={id} />
                         </div>
                         
                         <div className="media-details__images container">
                             <div className="section__header">
                                 <h2 className="section__title">Images</h2>
                             </div>
-                            <ImageSwiper id={id} mediaType={type} title={item.title || item.name} />
+                            <ImageSwiper mediaId={id} mediaType={type} title={item.title || item.name} />
                         </div>
 
                         <div className="media-details__trailers container">

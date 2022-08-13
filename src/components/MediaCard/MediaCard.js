@@ -31,7 +31,8 @@ const MediaCard = props => {
 }
 
 MediaCard.propTypes = {
-    mediaType: PropTypes.string.isRequired
+    mediaType: PropTypes.string.isRequired,
+    item: PropTypes.object.isRequired
 };
 
 export default MediaCard;

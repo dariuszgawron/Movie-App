@@ -23,12 +23,12 @@ export const tvCategories = {
 };
 
 const tmdbApi = {
-    getMediaList: (mediaType,mediaCategory,queryParams) => {
+    getMediaList: (mediaType, mediaCategory, queryParams) => {
         const category = (mediaType==='movie' ? movieCategories[mediaCategory] : tvCategories[mediaCategory]);
         const url = `${mediaTypes[mediaType]}/${category}?api_key=${tmdbConfig.apiKey}`;
         return axiosConfig.get(url, queryParams);
     },
-    getMediaVideos: (mediaType,mediaId) => {
+    getMediaVideos: (mediaType, mediaId) => {
         const url = `${mediaTypes[mediaType]}/${mediaId}/videos?api_key=${tmdbConfig.apiKey}`;
         return axiosConfig.get(url, {params: {}});
     },

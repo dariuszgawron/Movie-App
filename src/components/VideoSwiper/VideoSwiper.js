@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
+import PropTypes from 'prop-types';
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -68,6 +69,11 @@ const VideoSwiper = props => {
             )}
         </div>
     )
+};
+
+VideoSwiper.propTypes = {
+    mediaType: PropTypes.string.isRequired,
+    mediaId: PropTypes.string.isRequired
 };
 
 export default VideoSwiper;

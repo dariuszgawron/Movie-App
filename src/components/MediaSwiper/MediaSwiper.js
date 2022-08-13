@@ -50,10 +50,10 @@ const MediaSwiper = props => {
                     768: {
                         slidesPerView: 4
                     },
-                    992: {
+                    1100: {
                         slidesPerView: 5
                     },
-                    1200: {
+                    1300: {
                         slidesPerView: 6
                     }
                 }}
@@ -78,7 +78,8 @@ const MediaSwiper = props => {
 
 MediaSwiper.propTypes = {
     mediaType: PropTypes.string.isRequired,
-    mediaCategory: PropTypes.string.isRequired
+    mediaCategory: PropTypes.string.isRequired,
+    mediaId: PropTypes.string
 }
 
 export default MediaSwiper;

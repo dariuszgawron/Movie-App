@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import tmdbConfig, {imageSize} from "../../api/tmdbConfig";
 import { mediaTypes } from "../../api/tmdbApi";
@@ -49,6 +50,11 @@ const MediaHeader = props => {
             </div>
         </div>
     )
+};
+
+MediaHeader.propTypes = {
+    item: PropTypes.object.isRequired,
+    mediaType: PropTypes.string.isRequired
 };
 
 export default MediaHeader;

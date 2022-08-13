@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
 import { Swiper, SwiperSlide} from 'swiper/react';
 import {Navigation} from 'swiper';
+import PropTypes from 'prop-types';
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -10,19 +10,18 @@ import tmdbConfig, { imageSize } from "../../api/tmdbConfig";
 
 import './CastSwiper.scss';
 
-const CastSwiper = () => {
-    const {type, id} = useParams();
+const CastSwiper = props => {
     const [casts,setCasts] = useState([]);
     const navigationPrevRef = useRef(null);
     const navigationNextRef = useRef(null);
 
     useEffect(() => {
         const getCasts = async () => {
-            const response = await tmdbApi.getMediaCredits(type, id);
+            const response = await tmdbApi.getMediaCredits(props.mediaType, props.mediaId);
             setCasts(response.cast.slice(0,20));
         };
         getCasts();
-    }, [type,id]);
+    }, [props.mediaType, props.mediaId]);
 
     return (
         <div className="casts">
@@ -69,6 +68,11 @@ const CastSwiper = () => {
             </Swiper>
         </div>
     )
+};
+
+CastSwiper.propTypes = {
+    mediaType: PropTypes.string.isRequired,
+    mediaId: PropTypes.string.isRequired
 };
 
 export default CastSwiper;

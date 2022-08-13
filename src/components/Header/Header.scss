@@ -52,7 +52,7 @@
         display: flex;
         justify-content: space-around;
         align-items: flex-end;
-        padding: 1.5rem 0;
+        padding: 1.1rem 0;
         background-color: var(--background-primary-color);
         color: rgb(239, 239, 239);
 
@@ -63,11 +63,13 @@
             width: auto;
             justify-content: center;
             align-items: center;
-            padding: 0 1.5rem;
+            padding: 0 1.1rem;
         }
     }
 
     &__list {
+        margin-left: 1rem;
+        margin-right: 1rem;
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -75,9 +77,9 @@
         column-gap: 2rem;
 
         &-item {
-            color: lightgray;
+            color: rgb(211, 211, 211);
 
-            &--active .nav__link {
+            &--active .nav__link, &:hover .nav__link {
                 font-weight: var(--font-weight-semibold);
                 color: var(--text-color-light);
                 text-shadow: 0 0 15px var(--text-color-light);

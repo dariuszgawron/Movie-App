@@ -51,7 +51,7 @@ const Header = () => {
                     <MediaSearch />
                 </div>
                 <div className="nav__menu">
-                    <ul className="nav__list container">
+                    <ul className="nav__list">
                         {
                             navLinks.map((link, index) => (
                                 <li className={`nav__list-item ${index === activeLink ? 'nav__list-item--active' : ''}`} key={index}>

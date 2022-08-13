@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import MediaSearch from "../MediaSearch/MediaSearch";
 
@@ -12,6 +13,11 @@ const MediaFilter = props => {
             </div>
         </div>
     )
+};
+
+MediaFilter.propTypes = {
+    mediaType: PropTypes.string.isRequired,
+    keyword: PropTypes.string
 };
 
 export default MediaFilter;
