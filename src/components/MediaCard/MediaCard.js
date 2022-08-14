@@ -13,7 +13,15 @@ const MediaCard = props => {
     return (
         <div className="media-card swiper-slide">
             <Link className="media-card__link" to={linkUrl}>
-                <img className="media-card__img" src={movieCover} alt={`${props.item.title || props.item.name}`} />
+                {
+                    (props.item.poster_path!==null | props.item.backdrop_path!==null) ? (
+                        <img className="media-card__poster" src={movieCover} alt={`${props.item.title || props.item.name}`} />
+                    ) : (
+                        <div className="media-card__backdrop">
+                            <i className='media-card__backdrop-icon bx bx-image'></i>
+                        </div>
+                    )
+                }
                 <div className="media-card__data">
                     <div className="media-card__rate">
                         <i className='media-card__rate-icon bx bxs-star'></i>

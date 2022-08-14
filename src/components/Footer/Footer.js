@@ -6,21 +6,14 @@ import './Footer.scss';
 const Footer = () => {
     return (
         <footer className="footer">
-            <div className="footer__container">
-                <div className="footer__content">
-                    <Link to="/">
-
-                    </Link>
-                    <div className="footer__links">
-                        <Link to="/">
-                            Home
-                        </Link>
-                        <Link to="/">
-                            About us 
-                        </Link>
-                    </div>
+            <div className="footer__content footer__content--center container">
+                <div className="footer__info">
+                    &#169; Copyright by Dariusz Gawron
                 </div>
-                Footer
+                <div className="footer__info">
+                    {/* <img className="footer__info-icon" src="../../../public/themoviedb.svg" alt="themoviedb logo" /> */}
+                    <span footer__info-text>This product uses the TMDB API but is not endorsed or certified by TMDB.</span>
+                </div>
             </div>
         </footer>
     )

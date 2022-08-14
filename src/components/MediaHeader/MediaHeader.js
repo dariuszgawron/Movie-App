@@ -16,10 +16,24 @@ const MediaHeader = props => {
             <div className="media-header__rate">
                 {`${item.vote_average.toFixed(1)}`}
             </div>
-            <img className="media-header__background" src={tmdbConfig.imageUrl(imageSize.original,item.backdrop_path || item.poster_path)} alt={`${item.title || item.name} - background`} />
+            {
+                (item.backdrop_path!==null | item.poster_path!==null) ? (
+                    <img className="media-header__background" src={tmdbConfig.imageUrl(imageSize.original,item.backdrop_path || item.poster_path)} alt={`${item.title || item.name} - background`} />
+                ) : (
+                    <div className="media-header__background media-header__background--empty"></div>
+                )
+            }
             <div className="media-header__content">
                 <div className="media-header__poster">
-                    <img className="media-header__poster-image" src={tmdbConfig.imageUrl(imageSize.original, item.poster_path || item.backdrop_path)} alt={`${item.title || item.name} - poster`} />
+                    {
+                        (item.poster_path!==null | item.backdrop_path!==null) ? (
+                            <img className="media-header__poster-image" src={tmdbConfig.imageUrl(imageSize.original, item.poster_path || item.backdrop_path)} alt={`${item.title || item.name} - poster`} />
+                        ) : (
+                            <div className="media-header__poster-backdrop">
+                                <i className='media-header__poster-backdrop-icon bx bx-image'></i>
+                            </div>
+                        )
+                    }
                 </div>
                 <div className="media-header__info">
                     <div className="media-header__type">

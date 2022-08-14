@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide} from 'swiper/react';
-import {Navigation} from 'swiper';
+import { Navigation } from 'swiper';
 import PropTypes from 'prop-types';
 import "swiper/css";
 import "swiper/css/navigation";
@@ -11,7 +11,7 @@ import tmdbConfig, { imageSize } from "../../api/tmdbConfig";
 import './CastSwiper.scss';
 
 const CastSwiper = props => {
-    const [casts,setCasts] = useState([]);
+    const [casts, setCasts] = useState([]);
     const navigationPrevRef = useRef(null);
     const navigationNextRef = useRef(null);
 
@@ -25,47 +25,69 @@ const CastSwiper = props => {
 
     return (
         <div className="casts">
-            <Swiper
-                modules={[Navigation]}
-                spaceBetween={15}
-                slidesPerView={3}
-                navigation={{
-                    prevEl: navigationPrevRef.current,
-                    nextEl: navigationNextRef.current
-                }}
-                breakpoints= {{
-                    789: {
-                        slidesPerView: 4
-                    },
-                    922: {
-                        slidesPerView: 5
-                    },
-                    1100: {
-                        slidesPerView: 6
-                    },
-                    1450: {
-                        slidesPerView: 7
-                    }
-                }}
-            >
-                {
-                    casts.map((cast,index) => (
-                        <SwiperSlide key={index}>
-                            <div className="casts__item" key={index}>
-                                <img className="casts__item-image" src={tmdbConfig.imageUrl(imageSize.w500, cast.profile_path || '')} alt={`${cast.name} / ${cast.character}`} />
-                                <p className="casts__item-name">{cast.name}</p>
-                                <p className="casts__item-character">{cast.character}</p>
-                            </div>
-                        </SwiperSlide>
-                    ))
-                }
-                <div className="casts__navigation casts__navigation--prev" ref={navigationPrevRef}>
-                    <i className='casts__navigation-icon bx bx-chevron-left'></i>
-                </div>
-                <div className="casts__navigation casts__navigation--next" ref={navigationNextRef}>
-                    <i className='casts__navigation-icon bx bx-chevron-right'></i>
-                </div>
-            </Swiper>
+            {
+                casts && casts.length ? 
+                (
+                    <Swiper
+                        modules={[Navigation]}
+                        spaceBetween={15}
+                        slidesPerView={3}
+                        navigation={{
+                            prevEl: navigationPrevRef.current,
+                            nextEl: navigationNextRef.current
+                        }}
+                        onBeforeInit={(swiper) => {
+                            swiper.params.navigation.prevEl = navigationPrevRef.current;
+                            swiper.params.navigation.nextEl = navigationNextRef.current;
+                        }}
+                        breakpoints= {{
+                            789: {
+                                slidesPerView: 4
+                            },
+                            922: {
+                                slidesPerView: 5
+                            },
+                            1100: {
+                                slidesPerView: 6
+                            },
+                            1450: {
+                                slidesPerView: 7
+                            }
+                        }}
+                    >
+                        {
+                            casts.map((cast,index) => (
+                                <SwiperSlide key={index}>
+                                    <div className="casts__item" key={index}>
+                                        {
+                                            (cast.profile_path!==null) ? (
+                                                <img className="casts__item-image" src={tmdbConfig.imageUrl(imageSize.w500, cast.profile_path || '')} alt={`${cast.name} / ${cast.character}`} />
+                                            ) : (
+                                                <div className="casts__item-backdrop">
+                                                    <i className='casts__item-backdrop-icon bx bx-image'></i>
+                                                </div>
+                                            )
+                                        }
+                                        <p className="casts__item-name">{cast.name}</p>
+                                        <p className="casts__item-character">{cast.character}</p>
+                                    </div>
+                                </SwiperSlide>
+                            ))
+                        }
+                        <div className="casts__navigation casts__navigation--prev" ref={navigationPrevRef}>
+                            <i className='casts__navigation-icon bx bx-chevron-left'></i>
+                        </div>
+                        <div className="casts__navigation casts__navigation--next" ref={navigationNextRef}>
+                            <i className='casts__navigation-icon bx bx-chevron-right'></i>
+                        </div>
+                    </Swiper>
+                ) : (
+                    <div className="casts__info">
+                        <i className='casts__info-icon bx bx-error-circle'></i>
+                        <span className="casts__info-text">No casts for the title</span>
+                    </div>
+                )
+            }
         </div>
     )
 };

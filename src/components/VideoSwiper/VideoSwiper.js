@@ -28,7 +28,7 @@ const VideoSwiper = props => {
     return (
         <div className="trailers">
         {
-            videos.length>0 ?
+            videos && videos.length ?
             (
                 <Swiper
                     modules={[Navigation]}
@@ -37,6 +37,10 @@ const VideoSwiper = props => {
                     navigation={{
                         prevEl: navigationPrevRef.current,
                         nextEl: navigationNextRef.current
+                    }}
+                    onBeforeInit={(swiper) => {
+                        swiper.params.navigation.prevEl = navigationPrevRef.current;
+                        swiper.params.navigation.nextEl = navigationNextRef.current;
                     }}
                     breakpoints= {{
                         882: {

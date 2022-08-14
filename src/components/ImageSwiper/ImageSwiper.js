@@ -27,7 +27,7 @@ const ImageSwiper = props => {
     return (
         <div className="images">
             {
-                images.length>0 ?
+                images && images.length ?
                 (
                     <Swiper
                         modules={[Navigation]}
@@ -36,6 +36,10 @@ const ImageSwiper = props => {
                         navigation={{
                             prevEl: navigationPrevRef.current,
                             nextEl: navigationNextRef.current
+                        }}
+                        onBeforeInit={(swiper) => {
+                            swiper.params.navigation.prevEl = navigationPrevRef.current;
+                            swiper.params.navigation.nextEl = navigationNextRef.current;
                         }}
                         breakpoints= {{
                             786: {

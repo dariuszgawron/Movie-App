@@ -35,24 +35,30 @@ const Details = () => {
                         </div>
 
                         <div className="media-details__casts container">
-                            <div className="section__header">
-                                <h2 className="section__title">Cast</h2>
+                            <div className="section">
+                                <div className="section__header">
+                                    <h2 className="section__title">Cast</h2>
+                                </div>
+                                <CastSwiper mediaType={type} mediaId={id} />
                             </div>
-                            <CastSwiper mediaType={type} mediaId={id} />
                         </div>
                         
                         <div className="media-details__images container">
-                            <div className="section__header">
-                                <h2 className="section__title">Images</h2>
+                            <div className="section">
+                                <div className="section__header">
+                                    <h2 className="section__title">Images</h2>
+                                </div>
+                                <ImageSwiper mediaId={id} mediaType={type} title={item.title || item.name} />
                             </div>
-                            <ImageSwiper mediaId={id} mediaType={type} title={item.title || item.name} />
                         </div>
 
                         <div className="media-details__trailers container">
-                            <div className="section__header">
-                                <h2 className="section__title">Trailers</h2>
+                            <div className="section">
+                                <div className="section__header">
+                                    <h2 className="section__title">Trailers</h2>
+                                </div>
+                                <VideoSwiper mediaType={type} mediaId={id}/>
                             </div>
-                            <VideoSwiper mediaType={type} mediaId={id}/>
                         </div>
 
                         <div className="media-details__similar container">
