@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import { Link, useLocation } from 'react-router-dom';
 
-import MediaSearch from "../MediaSearch/MediaSearch";
+// import MediaSearch from "../MediaSearch/MediaSearch";
+import HeaderSearch from "../HeaderSearch/HeaderSearch";
 
 import './Header.scss';
 
@@ -48,7 +49,8 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className="nav-search">
-                    <MediaSearch />
+                    {/* <MediaSearch /> */}
+                    <HeaderSearch />
                 </div>
                 <div className="nav__menu">
                     <ul className="nav__list">

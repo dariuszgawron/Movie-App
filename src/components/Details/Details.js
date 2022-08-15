@@ -4,13 +4,13 @@ import {useParams} from 'react-router';
 import tmdbApi from "../../api/tmdbApi";
 // import tmdbConfig, {imageSize } from "../../api/tmdbConfig";
 
+import './Details.scss';
+
 import MediaHeader from "../MediaHeader/MediaHeader";
 import CastSwiper from "../CastSwiper/CastSwiper";
 import VideoSwiper from "../VideoSwiper/VideoSwiper";
 import MediaSwiper from "../MediaSwiper/MediaSwiper";
 import ImageSwiper from "../ImageSwiper/ImageSwiper";
-
-import './Details.scss';
 
 const Details = () => {
     const {type, id} = useParams();

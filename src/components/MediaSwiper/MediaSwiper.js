@@ -80,6 +80,6 @@ MediaSwiper.propTypes = {
     mediaType: PropTypes.string.isRequired,
     mediaCategory: PropTypes.string.isRequired,
     mediaId: PropTypes.string
-}
+};
 
 export default MediaSwiper;

@@ -2,7 +2,6 @@
     position: relative;
     height: 80vh;
     min-height: 80vh;
-    margin-bottom: 3rem;
 
     &::before {
         content: "";
@@ -45,7 +44,7 @@
         flex-direction: column;
         align-items: center;
         row-gap: 2rem;
-        text-shadow: 0 0 25px rgb(0, 0, 0);
+        text-shadow: 0 0 25px var(--shadow-secondary-color);
 
         @media screen and (min-width: 992px) {
             flex-direction: row;
@@ -62,7 +61,7 @@
             width: 100%;
             min-width: 250px;
             border-radius: 0 1rem;
-            box-shadow: 0 0 1.5rem rgb(226, 226, 226);
+            box-shadow: 0 0 1.5rem var(--shadow-primary-color);
             object-fit: contain;
         }
 

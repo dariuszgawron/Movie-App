@@ -18,14 +18,16 @@
 
   /* COLORS */
   --primary-color: rgb(233, 158, 18);
-  --secondary-color: rgb(0,0,0);
-  --background-primary-color: rgb(30,31,44);
+  --secondary-color: rgb(0, 0, 0);
+  --background-primary-color: rgb(30, 31, 44);
   --background-secondary-color: rgb(59, 60, 68);
-  --border-primary-color: rgb(255,255,255);
+  --border-primary-color: rgb(255, 255, 255);
   --text-color-light: rgb(255, 255, 255);
   --text-color-normal: rgb(180, 180, 180);
-  --text-color-dark: rgb(0,0,0);
+  --text-color-dark: rgb(0, 0, 0);
   --heading-color: rgb(255, 255, 255);
+  --shadow-primary-color: rgb(221, 221, 221);
+  --shadow-secondary-color: rgb(0, 0, 0);
 
   @media screen and (min-width: 768px) {
     --font-size-1: 2.2rem;

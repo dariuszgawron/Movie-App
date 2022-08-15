@@ -47,7 +47,7 @@
         z-index: 2;
         color: var(--primary-color);
         font-size: var(--font-size-1);
-        text-shadow: 0px 0px 5px rgb(0, 0, 0);
+        text-shadow: 0px 0px 5px var(--shadow-secondary-color);
         cursor: pointer;
 
         &--prev {

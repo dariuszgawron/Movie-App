@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
+
 import tmdbApi, { mediaTypes, movieCategories, tvCategories } from "../../api/tmdbApi";
 
 import MediaCard from "../MediaCard/MediaCard";
@@ -6,7 +8,7 @@ import Button from "../Button/Button";
 
 import './MediaList.scss';
 
-const MovieList = props => {
+const MediaList = props => {
     const [media, setMedia] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
@@ -68,4 +70,9 @@ const MovieList = props => {
     )
 };
 
-export default MovieList;
+MediaList.propTypes = {
+    mediaType: PropTypes.string.isRequired,
+    keyword: PropTypes.string
+};
+
+export default MediaList;

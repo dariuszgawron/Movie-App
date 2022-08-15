@@ -1,5 +1,9 @@
 .footer {
-    padding: 2rem 0 1rem;
+    padding: 2rem 0 3rem;
+
+    @media screen and (min-width: 992px) {
+        padding-bottom: 1rem;
+    }
 
     &__content {
         font-size: var(--font-size-6);
@@ -7,6 +11,23 @@
 
         &--center {
             text-align: center;
+        }
+
+        
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: .4rem;
+        margin-bottom: .6rem;
+
+        &-icon {
+            height: .5rem;
+        }
+
+        &-text {
+
         }
     }
 }

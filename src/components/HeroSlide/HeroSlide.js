@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom";
+import PropTypes from 'prop-types';
 
 import tmdbConfig, {imageSize} from "../../api/tmdbConfig";
 import tmdbApi from "../../api/tmdbApi";
@@ -79,6 +80,11 @@ const HeroSlide = props => {
             </div>
         </div>
     )
+};
+
+HeroSlide.propTypes = {
+    item: PropTypes.object.isRequired,
+    isActive: PropTypes.bool.isRequired
 };
 
 export default HeroSlide;

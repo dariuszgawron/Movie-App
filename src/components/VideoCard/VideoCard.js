@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import PropTypes from 'prop-types';
 
 import tmdbConfig from "../../api/tmdbConfig";
 
@@ -8,10 +9,10 @@ const VideoCard = props => {
     const video = props.item;
     const iframeRef = useRef(null);
 
-    useEffect(() => {
-        const iframeHeight = `${iframeRef.current.offsetWidth * 9 / 16} px`;
-        iframeRef.current.setAttribute('height', iframeHeight);
-    });
+    // useEffect(() => {
+    //     const iframeHeight = `${iframeRef.current.offsetWidth * 9 / 16} px`;
+    //     iframeRef.current.setAttribute('height', iframeHeight);
+    // });
 
     return (
         <div className="trailer-card">
@@ -28,6 +29,10 @@ const VideoCard = props => {
             </div>
         </div>
     )
+};
+
+VideoCard.propTypes = {
+    item: PropTypes.object
 };
 
 export default VideoCard;

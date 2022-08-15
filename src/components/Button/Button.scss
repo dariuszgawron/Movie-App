@@ -6,7 +6,7 @@
     border-radius: 0 .8rem;
 
     &:hover {
-        box-shadow: 0 0 8px 3px rgb(216, 216, 216);
+        box-shadow: 0 0 8px 3px var(--shadow-primary-color);
     }
 
     &--center {

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import './PageHeader.scss';
 
@@ -11,6 +12,10 @@ const PageHeader = props => {
 
         </div>
     )
+};
+
+PageHeader.propTypes = {
+    children: PropTypes.string.isRequired
 };
 
 export default PageHeader;

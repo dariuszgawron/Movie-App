@@ -53,7 +53,7 @@ const ImageSwiper = props => {
                     {
                         images.map((image, index) => (
                             <SwiperSlide key={index}>
-                                <img className="images__card" key={index} src={tmdbConfig.imageUrl(imageSize.original, image.file_path)} alt={`${props.title} - gallery`} />
+                                <img className="images__card" key={index} src={tmdbConfig.imageUrl(imageSize.w500, image.file_path)} alt={`${props.title} - gallery`} />
                             </SwiperSlide>
                         ))
                     }
@@ -79,7 +79,7 @@ const ImageSwiper = props => {
 ImageSwiper.propTypes = {
     mediaType: PropTypes.string.isRequired,
     mediaId: PropTypes.string.isRequired,
-    title: PropTypes.string
+    title: PropTypes.string.isRequired
 };
 
 export default ImageSwiper;
