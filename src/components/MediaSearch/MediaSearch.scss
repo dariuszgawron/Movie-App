@@ -27,26 +27,6 @@
         }
     }
 
-    &__select {
-        margin: 0;
-        width: auto;
-        padding: .3rem .5rem;
-        font-size: var(--font-size-5);
-        color: inherit;
-        background-color: transparent;
-        border: 1px solid transparent;
-        border-radius: inherit;
-        outline: none;
-
-        &--hidden {
-            display: none;
-        }
-
-        &-option {
-            background-color: var(--background-secondary-color);
-        }
-    }
-
     &__button {
         width: 50px;
         margin: 0;

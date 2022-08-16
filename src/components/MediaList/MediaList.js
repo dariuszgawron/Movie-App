@@ -50,13 +50,26 @@ const MediaList = props => {
 
     return (
         <div className="media-list">
-            <div className="media-list__items">
             {
-                media.map((item, index) => {
-                    return <MediaCard mediaType={props.mediaType} item={item} key={index} />
-                })
+                media && media.length ? (
+                    <div className="media-list__items">
+                    {
+                        media.map((item, index) => {
+                            return <MediaCard mediaType={props.mediaType} item={item} key={index} />
+                        })
+                    }
+                    </div>
+                ) : (
+                    <div className="media-list__empty">
+                        <i class='media-list__empty-icon bx bx-sad'></i>
+                        <p className="media-list__empty-text">
+                            Oops, it looks like nothing was found for <span className="media-list__empty-text--important">"{props.keyword}"</span>.<br />
+                            Please try to search for something else.
+                        </p>
+                    </div>
+                )
             }
-            </div>
+            
             {
                 (currentPage < totalPages)
                 ? (

@@ -8,19 +8,17 @@ import './MediaSearch.scss';
 
 const MediaSearch = props => {
     const navigate = useNavigate();
-    const { category } = useParams();
+    const { type } = useParams();
     const [keyword, setKeyword] = useState(props.keyword ? props.keyword : '');
-    const [mediaType, setMediaType] = useState(category ? mediaTypes[category] : 'movie');
-    const mediaTypeClass = props.mediaTypeClass || '';
 
     const searchKeyword = useCallback(
         () => {
+            console.log(type);
             if(keyword.trim().length > 0) {
-                // navigate(`/${mediaTypes[props.mediaType]}/search/${keyword}`);
-                navigate(`/${mediaType}/search/${keyword}`);
+                navigate(`/${mediaTypes[type]}/search/${keyword}`);
             }
         },
-        [keyword, mediaType, navigate]
+        [navigate, type, keyword]
     );
 
     useEffect(() => {
@@ -38,24 +36,13 @@ const MediaSearch = props => {
 
     return (
         <div className="media-search">
-            {/* <div className="media-search__box"> */}
-                <input
-                    className="media-search__input"
-                    type='search'
-                    placeholder="Search media"
-                    value={keyword}
-                    onChange={(event) => setKeyword(event.target.value)}
-                />
-                <select
-                    className={`media-search__select ${mediaTypeClass}`}
-                    placeholder="Choose media type"
-                    value={mediaType}
-                    onChange={event => setMediaType(event.target.value)}
-                >
-                    <option className="media-search__select-option" value="movie">movie</option>
-                    <option className="media-search__select-option" value="tv">series</option>
-                </select>
-            {/* </div> */}
+            <input
+                className="media-search__input"
+                type='search'
+                placeholder="Search media"
+                value={keyword}
+                onChange={(event) => setKeyword(event.target.value)}
+            />
             <button className="media-search__button" onClick={searchKeyword}>
                 <i className='media-search__button-icon bx bx-search' ></i>
             </button>

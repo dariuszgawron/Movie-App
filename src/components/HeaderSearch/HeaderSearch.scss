@@ -1,10 +1,12 @@
 .header-search {
     width: 100%;
     display: flex;
-    padding: .2rem;
+    justify-content: flex-end;
+    padding: .1rem .2rem;
     border: 1px solid rgb(200, 200, 200);
     border-radius: 0 .8rem;
     color: var(--text-color-light);
+    transition: .4s;
 
     &:hover &__box {
         width: 100%;
@@ -14,7 +16,7 @@
         width: 0;
         overflow: hidden;
         display: flex;
-        transition: .2s all;
+        transition: .4s all;
     }
 
     &__input {
@@ -27,6 +29,7 @@
         border: 1px solid transparent;
         border-radius: inherit;
         outline: none;
+        transition: 1s;
 
         &::placeholder {
             color: rgb(187, 187, 187);
@@ -41,13 +44,14 @@
     &__select {
         margin: 0;
         width: auto;
-        padding: .3rem .5rem;
+        padding: .3rem .3rem;
         font-size: var(--font-size-5);
         color: inherit;
         background-color: transparent;
         border: 1px solid rgb(30, 31, 44);
         border-radius: inherit;
         outline: none;
+        transition: .4s;
 
         &--hidden {
             display: none;

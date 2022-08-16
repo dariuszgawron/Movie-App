@@ -18,7 +18,7 @@ const CastSwiper = props => {
     useEffect(() => {
         const getCasts = async () => {
             const response = await tmdbApi.getMediaCredits(props.mediaType, props.mediaId);
-            setCasts(response.cast.slice(0,20));
+            setCasts(response.cast.slice(0, 20));
         };
         getCasts();
     }, [props.mediaType, props.mediaId]);

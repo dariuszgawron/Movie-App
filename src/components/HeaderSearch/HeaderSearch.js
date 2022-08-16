@@ -19,7 +19,7 @@ const HeaderSearch = props => {
             if(keyword.trim().length > 0) {
                 navigate(`/${mediaType}/search/${keyword}`);
             }
-            // inputRef.current.value='';
+            setKeyword('');
         },
         [keyword, mediaType, navigate]
     );

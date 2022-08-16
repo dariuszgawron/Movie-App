@@ -21,17 +21,17 @@ const navLinks = [
         title: 'Series',
         pathname: '/tv',
         iconclass: 'bx bx-tv'
-    },
-    { 
-        title: 'Search',
-        pathname: '/search',
-        iconclass: 'bx bx-search'
-    },
-    { 
-        title: 'About',
-        pathname: '/about',
-        iconclass: 'bx bx-info-circle'
     }
+    // { 
+    //     title: 'Search',
+    //     pathname: '/search',
+    //     iconclass: 'bx bx-search'
+    // },
+    // { 
+    //     title: 'About',
+    //     pathname: '/about',
+    //     iconclass: 'bx bx-info-circle'
+    // }
 ];
 
 const Header = () => {

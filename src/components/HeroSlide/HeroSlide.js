@@ -29,11 +29,25 @@ const HeroSlide = props => {
 
     return (
         <div className={`hero-slide ${heroSlideClass}`}>
-            <img className="hero-slide__background" src={backgroundImage} alt={`${props.item.title} - background`} />
+            {
+                (props.item.backdrop_path!==null | props.item.poster_path!==null) ? (
+                    <img className="hero-slide__background" src={backgroundImage} alt={`${props.item.title} - background`} />
+                ) : (
+                    <div className="hero-slide__background media-header__background--empty"></div>
+                )
+            }
             <div className="hero-slide__overlay"></div>
             <div className="hero-slide__content container">
                 <div className="hero-slide__poster">
-                    <img className="hero-slide__poster-image" src={tmdbConfig.imageUrl(imageSize.w500,props.item.poster_path)} alt={`${props.item.title} - poster`} />
+                {
+                    (props.item.poster_path!==null) ? (
+                        <img className="hero-slide__poster-image" src={tmdbConfig.imageUrl(imageSize.w500, props.item.poster_path)} alt={`${props.item.title} - poster`} />
+                    ) : (
+                        <div className="hero-slide__poster-backdrop">
+                            <i className='hero-slide__poster-backdrop-icon bx bx-image'></i>
+                        </div>
+                    )
+                }
                 </div>
                 <div className="hero-slide__info">
                     <h2 className="hero-slide__title">

@@ -30,4 +30,28 @@
         display: flex;
         justify-content: center;
     }
+
+    &__empty {
+        margin: 4rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        &-icon {
+            font-size: var(--font-size-1);
+            color: var(--primary-color);
+        }
+
+        &-text {
+            font-size: var(--font-size-2);
+            text-align: center;
+
+            &--important {
+                font-weight: var(--font-weight-bold);
+                color: var(--text-color-light);
+            }
+        }
+    }
 }
