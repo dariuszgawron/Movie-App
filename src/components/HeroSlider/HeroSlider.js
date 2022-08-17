@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide} from "swiper/react";
 import tmdbApi, {mediaTypes, movieCategories} from "../../api/tmdbApi";
 
 import HeroSlide from "../HeroSlide/HeroSlide";
+import TrailerModal from "../TrailerModal/TrailerModal";
 
 import "./HeroSlider.scss";
 
@@ -41,6 +42,9 @@ const HeroSlider = () => {
                     ))
                 }
             </Swiper>
+            {
+                slides.map((item, index) => <TrailerModal key={index} item={item}/>)
+            }
         </div>
     )
 };

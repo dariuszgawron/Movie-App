@@ -12,11 +12,11 @@ import './HeroSlide.scss';
 const HeroSlide = props => {
     let navigate = useNavigate();
 
-    const [details,setDetails] = useState([]);
+    const [details, setDetails] = useState([]);
 
     useEffect(() => {
         const getDetails = async () => {
-            const response = await tmdbApi.getMediaDetails('movie',props.item.id,{params: {}});
+            const response = await tmdbApi.getMediaDetails('movie', props.item.id, {params: {}});
             setDetails(response);
         };
         getDetails();
@@ -26,6 +26,12 @@ const HeroSlide = props => {
     const heroSlideClass = props.isActive ? 'hero-slide--active' : '';
     const releaseYear = new Date(props.item.release_date).getFullYear();
     const runtime = `${Math.floor(details.runtime/60) || 0}h ${details.runtime%60 || 0}m`;
+
+    const openModal = async () => {
+        const trailerModal = document.getElementById(`modal-${props.item.id}`);
+
+        
+    }
 
     return (
         <div className={`hero-slide ${heroSlideClass}`}>
