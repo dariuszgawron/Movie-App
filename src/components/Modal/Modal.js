@@ -17,7 +17,7 @@ const Modal = props => {
     }, [props.active]);
 
     return (
-        <div className={`modal ${active ? 'modal--active' : ''}`} ref={modalRef} id={props.modalId}>
+        <div className={`modal ${active ? 'modal--active' : ''}`} ref={modalRef} id={props.modalId} onClick={closeModal}>
             <div className="modal-content">   
                 {props.children}
                 <div className="modal-content__close" onClick={closeModal}>

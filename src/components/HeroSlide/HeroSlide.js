@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import PropTypes from 'prop-types';
 
 import tmdbConfig, {imageSize} from "../../api/tmdbConfig";
-import tmdbApi from "../../api/tmdbApi";
+import tmdbApi, { mediaTypes } from "../../api/tmdbApi";
 
 import Button from "../Button/Button";
 
@@ -16,7 +16,7 @@ const HeroSlide = props => {
 
     useEffect(() => {
         const getDetails = async () => {
-            const response = await tmdbApi.getMediaDetails('movie', props.item.id, {params: {}});
+            const response = await tmdbApi.getMediaDetails(mediaTypes.movie, props.item.id, {params: {}});
             setDetails(response);
         };
         getDetails();
@@ -29,8 +29,14 @@ const HeroSlide = props => {
 
     const openModal = async () => {
         const trailerModal = document.getElementById(`modal-${props.item.id}`);
-
-        
+        const trailerVideos = await tmdbApi.getMediaVideos(mediaTypes.movie,props.item.id);
+        if(trailerVideos.results.length) {
+            const trailerSrc = tmdbConfig.videoUrl(trailerVideos.results[0].key);
+            trailerModal.querySelector('.modal-content > iframe').setAttribute('src', trailerSrc);
+        } else {
+            trailerModal.querySelector('.modal__content').innerHTML='No trailer';
+        }
+        trailerModal.classList.toggle('modal--active');
     }
 
     return (
@@ -90,7 +96,7 @@ const HeroSlide = props => {
                         </Button>
                         <Button 
                             className="button--danger"
-                            onClick={() => navigate(`/movie/${props.item.id}`)} 
+                            onClick={openModal} 
                         >
                             <i className='button__icon bx bx-play-circle'></i>
                             Watch trailer

@@ -4,10 +4,14 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 100;
-    background-color: rgba(0, 0, 0, 0.518);
+    background-color: rgba(0, 0, 0, 0.723);
     opacity: 0;
     visibility: hidden;
+    transition: .3s ease-out;
 
     &--active {
         opacity: 1;
@@ -15,20 +19,35 @@
     }
 
     &-content {
-        width: 80%;
+        width: 90%;
         padding: 1.5rem;
         height: auto;
         position: relative;
 
+        @media screen and (min-width: 992px) {
+            width: 80%;
+        }
+
         &__close {
             position: absolute;
-            top: 5px;
-            right: 5px;
+            top: -.5rem;
+            right: -.5rem;
             font-size: var(--font-size-2);
             color: var(--text-color-light);
+            cursor: pointer;
 
+            @media screen and (min-width: 992px) {
+                top: -1rem;
+                right: -1rem;
+            }
+            
             &-icon {
-
+                transition: .4s;
+            
+                &:hover {
+                    transform: rotate(180deg) scale(1.1);
+                }
+                
             }
         }
     }
