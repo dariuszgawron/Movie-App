@@ -11,6 +11,7 @@ import CastSwiper from "../CastSwiper/CastSwiper";
 import VideoSwiper from "../VideoSwiper/VideoSwiper";
 import MediaSwiper from "../MediaSwiper/MediaSwiper";
 import ImageSwiper from "../ImageSwiper/ImageSwiper";
+import ImageModal from "../ImageModal/ImageModal";
 
 const Details = () => {
     const {type, id} = useParams();
@@ -69,6 +70,8 @@ const Details = () => {
                                 <MediaSwiper mediaType={type} mediaCategory="similar" mediaId={id}/>
                             </div>
                         </div>
+
+                        <ImageModal item={item}/>
                     </>
                 )
             }

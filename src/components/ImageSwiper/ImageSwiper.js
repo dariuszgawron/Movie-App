@@ -15,6 +15,13 @@ const ImageSwiper = props => {
     const [images, setImages] = useState([]);
     const navigationPrevRef = useRef(null);
     const navigationNextRef = useRef(null);
+
+    const openModal = async (event) => {
+        const imageModal = document.getElementById(`modal-${props.mediaId}`);
+        const imageSrc = tmdbConfig.imageUrl(imageSize.original, event.target.getAttribute('data-filePath'));
+        imageModal.querySelector('.modal-content > img').setAttribute('src', imageSrc);
+        imageModal.classList.toggle('modal--active');
+    }
  
     useEffect(() => {
         const getImages = async () => {
@@ -53,7 +60,7 @@ const ImageSwiper = props => {
                     {
                         images.map((image, index) => (
                             <SwiperSlide key={index}>
-                                <img className="images__card" key={index} src={tmdbConfig.imageUrl(imageSize.w500, image.file_path)} alt={`${props.title} - gallery`} />
+                                <img className="images__card" key={index} src={tmdbConfig.imageUrl(imageSize.w500, image.file_path)} alt={`${props.title} - gallery`} data-filePath={image.file_path} onClick={openModal} />
                             </SwiperSlide>
                         ))
                     }
