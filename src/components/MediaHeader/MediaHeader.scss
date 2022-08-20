@@ -42,7 +42,7 @@
         padding: 2rem 1rem;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end;
         row-gap: 2rem;
         text-shadow: 0 0 25px var(--shadow-secondary-color);
 
@@ -84,7 +84,7 @@
     }
 
     &__info {
-
+        padding-bottom: .4rem;
     }
 
     &__type {

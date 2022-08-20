@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Swiper, SwiperSlide} from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from 'swiper';
 import PropTypes from 'prop-types';
 
@@ -18,10 +18,17 @@ const ImageSwiper = props => {
 
     const openModal = async (event) => {
         const imageModal = document.getElementById(`modal-${props.mediaId}`);
-        const imageSrc = tmdbConfig.imageUrl(imageSize.original, event.target.getAttribute('data-filePath'));
-        imageModal.querySelector('.modal-content > img').setAttribute('src', imageSrc);
+        const imageSrc = tmdbConfig.imageUrl(imageSize.original, event.target.getAttribute('data-filepath'));
+        imageModal.querySelector('.image-modal__img').setAttribute('src', imageSrc);
         imageModal.classList.toggle('modal--active');
-    }
+    };
+
+    // const reloadImage = async (event) => {
+    //     console.log('error');
+    //     event.onerror = null;
+    //     event.src = tmdbConfig.imageUrl(imageSize.w500, event.target.getAttribute('data-filepath'));
+    //     console.log(event.src);
+    // }
  
     useEffect(() => {
         const getImages = async () => {
@@ -60,7 +67,7 @@ const ImageSwiper = props => {
                     {
                         images.map((image, index) => (
                             <SwiperSlide key={index}>
-                                <img className="images__card" key={index} src={tmdbConfig.imageUrl(imageSize.w500, image.file_path)} alt={`${props.title} - gallery`} data-filePath={image.file_path} onClick={openModal} />
+                                <img className="images__card" key={index} src={tmdbConfig.imageUrl(imageSize.w500, image.file_path)} alt={`${props.title} - gallery`} data-filepath={image.file_path} onClick={openModal}/>
                             </SwiperSlide>
                         ))
                     }

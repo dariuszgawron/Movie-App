@@ -1,17 +1,23 @@
-import React, {useEffect, useState} from "react";
-import {useParams} from 'react-router';
+import React, { useEffect, useState, Suspense } from "react";
+import { useParams } from 'react-router';
 
 import tmdbApi from "../../api/tmdbApi";
 // import tmdbConfig, {imageSize } from "../../api/tmdbConfig";
 
 import './Details.scss';
 
-import MediaHeader from "../MediaHeader/MediaHeader";
-import CastSwiper from "../CastSwiper/CastSwiper";
-import VideoSwiper from "../VideoSwiper/VideoSwiper";
-import MediaSwiper from "../MediaSwiper/MediaSwiper";
-import ImageSwiper from "../ImageSwiper/ImageSwiper";
-import ImageModal from "../ImageModal/ImageModal";
+// import MediaHeader from "../MediaHeader/MediaHeader";
+// import CastSwiper from "../CastSwiper/CastSwiper";
+// import ImageSwiper from "../ImageSwiper/ImageSwiper";
+// import VideoSwiper from "../VideoSwiper/VideoSwiper";
+// import MediaSwiper from "../MediaSwiper/MediaSwiper";
+// import ImageModal from "../ImageModal/ImageModal";
+const MediaHeader = React.lazy(() => import("../MediaHeader/MediaHeader"));
+const CastSwiper = React.lazy(() => import("../CastSwiper/CastSwiper"));
+const ImageSwiper = React.lazy(() => import("../ImageSwiper/ImageSwiper"));
+const VideoSwiper = React.lazy(() => import("../VideoSwiper/VideoSwiper"));
+const MediaSwiper = React.lazy(() => import("../MediaSwiper/MediaSwiper"));
+const ImageModal = React.lazy(() => import("../ImageModal/ImageModal"));
 
 const Details = () => {
     const {type, id} = useParams();
@@ -32,7 +38,9 @@ const Details = () => {
                 item && (
                     <>
                         <div className="media-details__header container">
-                            <MediaHeader item={item} mediaType={type} />
+                            <Suspense>
+                                <MediaHeader item={item} mediaType={type} />
+                            </Suspense>
                         </div>
 
                         <div className="media-details__casts container">
@@ -40,7 +48,11 @@ const Details = () => {
                                 <div className="section__header">
                                     <h2 className="section__title">Cast</h2>
                                 </div>
-                                <CastSwiper mediaType={type} mediaId={id} />
+                                <div className="section__content">
+                                    <Suspense>
+                                        <CastSwiper mediaType={type} mediaId={id} />
+                                    </Suspense>
+                                </div>
                             </div>
                         </div>
                         
@@ -49,7 +61,12 @@ const Details = () => {
                                 <div className="section__header">
                                     <h2 className="section__title">Images</h2>
                                 </div>
-                                <ImageSwiper mediaId={id} mediaType={type} title={item.title || item.name} />
+                                <div className="section__content">
+                                    <Suspense>
+                                        <ImageSwiper mediaId={id} mediaType={type} title={item.title || item.name} />
+                                    </Suspense>
+                                </div>
+                                
                             </div>
                         </div>
 
@@ -58,7 +75,11 @@ const Details = () => {
                                 <div className="section__header">
                                     <h2 className="section__title">Trailers</h2>
                                 </div>
-                                <VideoSwiper mediaType={type} mediaId={id}/>
+                                <div className="section__content">
+                                    <Suspense>
+                                        <VideoSwiper mediaType={type} mediaId={id}/>
+                                    </Suspense>
+                                </div>
                             </div>
                         </div>
 
@@ -67,11 +88,16 @@ const Details = () => {
                                 <div className="section__header">
                                     <h2 className="section__title">Similar</h2>
                                 </div>
-                                <MediaSwiper mediaType={type} mediaCategory="similar" mediaId={id}/>
+                                <div className="section__content">
+                                    <Suspense>
+                                        <MediaSwiper mediaType={type} mediaCategory="similar" mediaId={id}/>
+                                    </Suspense>
+                                </div>
                             </div>
                         </div>
-
-                        <ImageModal item={item}/>
+                        <Suspense>
+                            <ImageModal item={item}/>
+                        </Suspense>
                     </>
                 )
             }

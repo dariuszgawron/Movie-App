@@ -5,7 +5,7 @@
         top: 50%;
         transform: translateY(-50%);
         width: 40px;
-        height: 40px;
+        height: 60px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -13,14 +13,21 @@
         color: var(--primary-color);
         font-size: var(--font-size-1);
         text-shadow: 0px 0px 5px var(--shadow-secondary-color);
+        background-color: rgba(0, 0, 0, 0.319);
         cursor: pointer;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.619);
+        }
 
         &--prev {
             left: 0;
+            border-radius: 0 .8rem .8rem 0;
         }
 
         &--next {
             right: 0;
+            border-radius: .8rem 0 0 .8rem;
         }
     }
 
