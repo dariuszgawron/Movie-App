@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { Link, useLocation } from 'react-router-dom';
 
-// import MediaSearch from "../MediaSearch/MediaSearch";
 import HeaderSearch from "../HeaderSearch/HeaderSearch";
 
 import './Header.scss';
@@ -22,11 +21,6 @@ const navLinks = [
         pathname: '/tv',
         iconclass: 'bx bx-tv'
     }
-    // { 
-    //     title: 'Search',
-    //     pathname: '/search',
-    //     iconclass: 'bx bx-search'
-    // },
     // { 
     //     title: 'About',
     //     pathname: '/about',
@@ -49,7 +43,6 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className="nav-search">
-                    {/* <MediaSearch /> */}
                     <HeaderSearch />
                 </div>
                 <div className="nav__menu">

@@ -30,7 +30,12 @@ const HeroSlider = () => {
                 slidesPerView={1}
                 spaceBetween={0}
                 grabCursor={true}
-                autoplay={{delay: 5000}}
+                autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false
+                }}
+                speed={1000}
+                loop={true}
             >
                 {
                     slides.map((slide, index) => (

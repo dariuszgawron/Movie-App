@@ -1,11 +1,12 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useParams } from "react-router";
 
-import {mediaTypes} from '../api/tmdbApi';
+import { mediaTypes } from '../api/tmdbApi';
 
 import PageHeader from "../components/PageHeader/PageHeader";
 import MediaFilter from "../components/MediaFilter/MediaFilter";
-import MediaList from "../components/MediaList/MediaList";
+// import MediaList from "../components/MediaList/MediaList";
+const MediaList = React.lazy(() => import("../components/MediaList/MediaList"));
 
 const Catalog = () => {
     const {type, keyword} = useParams();
@@ -17,7 +18,9 @@ const Catalog = () => {
             </PageHeader>
             <MediaFilter mediaType={type} keyword={keyword} />
             <div className="section">
-                <MediaList mediaType={type} keyword={keyword} />
+                <Suspense>
+                    <MediaList mediaType={type} keyword={keyword} />
+                </Suspense>
             </div>
         </main>
     )

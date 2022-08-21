@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+
 import themoviedbLogo from '../../images/themoviedb.svg';
 
 import './Footer.scss';

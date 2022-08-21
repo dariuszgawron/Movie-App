@@ -61,7 +61,7 @@ const MediaList = props => {
                     </div>
                 ) : (
                     <div className="media-list__empty">
-                        <i class='media-list__empty-icon bx bx-sad'></i>
+                        <i className='media-list__empty-icon bx bx-sad'></i>
                         <p className="media-list__empty-text">
                             Oops, it looks like nothing was found for <span className="media-list__empty-text--important">"{props.keyword}"</span>.<br />
                             Please try to search for something else.

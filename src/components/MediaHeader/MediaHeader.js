@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import tmdbConfig, {imageSize} from "../../api/tmdbConfig";
+import tmdbConfig, { imageSize } from "../../api/tmdbConfig";
 import { mediaTypes } from "../../api/tmdbApi";
 
 import "./MediaHeader.scss";
@@ -11,6 +11,13 @@ const MediaHeader = props => {
     const runtime = item.runtime || item.episode_run_time;
     const releaseDate = new Date(item.release_date || item.first_air_date);
 
+    const reloadImage = async (event) => {
+        console.log('error header');
+        event.onerror = null;
+        const imageSrc = tmdbConfig.imageUrl(imageSize.w500, event.target.getAttribute('data-filepath').substring(1));
+        event.target.setAttribute('src', imageSrc);
+    }
+
     return (
         <div className="media-header">
             <div className="media-header__rate">
@@ -18,7 +25,7 @@ const MediaHeader = props => {
             </div>
             {
                 (item.backdrop_path!==null | item.poster_path!==null) ? (
-                    <img className="media-header__background" src={tmdbConfig.imageUrl(imageSize.original,item.backdrop_path || item.poster_path)} alt={`${item.title || item.name} - background`} />
+                    <img className="media-header__background" src={tmdbConfig.imageUrl(imageSize.original,item.backdrop_path || item.poster_path)} alt={`${item.title || item.name} - background`} data-filepath={item.backdrop_path || item.poster_path} onError={reloadImage}/>
                 ) : (
                     <div className="media-header__background media-header__background--empty"></div>
                 )
@@ -27,7 +34,7 @@ const MediaHeader = props => {
                 <div className="media-header__poster">
                     {
                         (item.poster_path!==null | item.backdrop_path!==null) ? (
-                            <img className="media-header__poster-image" src={tmdbConfig.imageUrl(imageSize.original, item.poster_path || item.backdrop_path)} alt={`${item.title || item.name} - poster`} />
+                            <img className="media-header__poster-image" src={tmdbConfig.imageUrl(imageSize.original, item.poster_path || item.backdrop_path)} alt={`${item.title || item.name} - poster`} data-filepath={item.poster_path || item.backdrop_path} onError={reloadImage}/>
                         ) : (
                             <div className="media-header__poster-backdrop">
                                 <i className='media-header__poster-backdrop-icon bx bx-image'></i>

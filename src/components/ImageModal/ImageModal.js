@@ -6,7 +6,7 @@ import "./ImageModal.scss";
 
 const ImageModal = props => {
     const imageRef = useRef(null);
-    const onClose = () => imageRef.current.setAttribute('src','');
+    const onClose = () => imageRef.current.setAttribute('src', '');
 
     return (
         <div className="image-modal">

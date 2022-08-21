@@ -2,7 +2,6 @@ import React, { useEffect, useState, Suspense } from "react";
 import { useParams } from 'react-router';
 
 import tmdbApi from "../../api/tmdbApi";
-// import tmdbConfig, {imageSize } from "../../api/tmdbConfig";
 
 import './Details.scss';
 

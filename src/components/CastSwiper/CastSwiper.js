@@ -15,6 +15,12 @@ const CastSwiper = props => {
     const navigationPrevRef = useRef(null);
     const navigationNextRef = useRef(null);
 
+    const reloadImage = async (event) => {
+        event.onerror = null;
+        const imageSrc = tmdbConfig.imageUrl(imageSize.w500, event.target.getAttribute('data-filepath').substring(1));
+        event.target.setAttribute('src', imageSrc);
+    };
+
     useEffect(() => {
         const getCasts = async () => {
             const response = await tmdbApi.getMediaCredits(props.mediaType, props.mediaId);
@@ -61,7 +67,7 @@ const CastSwiper = props => {
                                     <div className="casts__item" key={index}>
                                         {
                                             (cast.profile_path!==null) ? (
-                                                <img className="casts__item-image" src={tmdbConfig.imageUrl(imageSize.w500, cast.profile_path || '')} alt={`${cast.name} / ${cast.character}`} />
+                                                <img className="casts__item-image" src={tmdbConfig.imageUrl(imageSize.w500, cast.profile_path)} alt={`${cast.name} / ${cast.character}`} data-filepath={cast.profile_path} onError={reloadImage} />
                                             ) : (
                                                 <div className="casts__item-backdrop">
                                                     <i className='casts__item-backdrop-icon bx bx-image'></i>

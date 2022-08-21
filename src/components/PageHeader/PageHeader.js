@@ -9,7 +9,6 @@ const PageHeader = props => {
             <h2 className="page-header__title page-header__title--center">
                 {props.children}
             </h2>
-
         </div>
     )
 };

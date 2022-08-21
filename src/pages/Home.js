@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Link } from 'react-router-dom';
 
 import { mediaTypes, movieCategories, tvCategories } from '../api/tmdbApi';
 
-import HeroSlider from '../components/HeroSlider/HeroSlider';
-import MediaSwiper from '../components/MediaSwiper/MediaSwiper';
+// import HeroSlider from '../components/HeroSlider/HeroSlider';
+// import MediaSwiper from '../components/MediaSwiper/MediaSwiper';
+const HeroSlider = React.lazy(() => import('../components/HeroSlider/HeroSlider'));
+const MediaSwiper = React.lazy(() => import('../components/MediaSwiper/MediaSwiper'));
 
 const sectionsData = [
     {
@@ -49,9 +51,11 @@ const Home = () => {
     return (
         <main className='main'>
             <div className='main__container'>
-                <HeroSlider />
+                <Suspense>
+                    <HeroSlider />
+                </Suspense>
                 {
-                    sectionsData.map((section,index) => (
+                    sectionsData.map((section, index) => (
                         <section className='section container' key={index}>
                             <div className='section__header'>
                                 <h2 className='section__title'>
@@ -62,7 +66,10 @@ const Home = () => {
                                 </Link>
                             </div>
                             <div className='section__content'>
-                                <MediaSwiper mediaType={section.mediaType} mediaCategory={section.mediaCategory}/>
+                                <Suspense>
+                                    <MediaSwiper mediaType={section.mediaType} mediaCategory={section.mediaCategory}/>
+                                </Suspense>
+                                
                             </div>
                         </section>
                     ))

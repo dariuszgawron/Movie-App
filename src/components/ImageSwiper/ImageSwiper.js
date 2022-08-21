@@ -23,12 +23,11 @@ const ImageSwiper = props => {
         imageModal.classList.toggle('modal--active');
     };
 
-    // const reloadImage = async (event) => {
-    //     console.log('error');
-    //     event.onerror = null;
-    //     event.src = tmdbConfig.imageUrl(imageSize.w500, event.target.getAttribute('data-filepath'));
-    //     console.log(event.src);
-    // }
+    const reloadImage = async (event) => {
+        event.onerror = null;
+        const imageSrc = tmdbConfig.imageUrl(imageSize.w500, event.target.getAttribute('data-filepath').substring(1));
+        event.target.setAttribute('src', imageSrc);
+    }
  
     useEffect(() => {
         const getImages = async () => {
@@ -67,7 +66,7 @@ const ImageSwiper = props => {
                     {
                         images.map((image, index) => (
                             <SwiperSlide key={index}>
-                                <img className="images__card" key={index} src={tmdbConfig.imageUrl(imageSize.w500, image.file_path)} alt={`${props.title} - gallery`} data-filepath={image.file_path} onClick={openModal}/>
+                                <img className="images__card" key={index} src={tmdbConfig.imageUrl(imageSize.w500, image.file_path)} alt={`${props.title} - gallery`} data-filepath={image.file_path} onClick={openModal} onError={reloadImage}/>
                             </SwiperSlide>
                         ))
                     }

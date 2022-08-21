@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PropTypes from 'prop-types';
 
 import tmdbConfig, {imageSize} from "../../api/tmdbConfig";
@@ -37,7 +37,7 @@ const HeroSlide = props => {
             trailerModal.querySelector('.modal__content').innerHTML='No trailer';
         }
         trailerModal.classList.toggle('modal--active');
-    }
+    };
 
     return (
         <div className={`hero-slide ${heroSlideClass}`}>
@@ -66,9 +66,6 @@ const HeroSlide = props => {
                         {props.item.title}
                     </h2>
                     <div className="hero-slide__details">
-                        {/* <span className="hero-slide__original-title">
-                            {props.item.original_title}
-                        </span> */}
                         <span className="hero-slide__release-year">
                             {releaseYear}
                         </span>
@@ -76,7 +73,6 @@ const HeroSlide = props => {
                             {runtime}
                         </span>
                     </div>
-                    
                     <div className="hero-slide__rate">
                         <i className='hero-slide__rate-icon bx bxs-star'></i>
                         <span className="hero-slide__rate-average">
