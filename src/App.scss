@@ -156,3 +156,16 @@ button {
     }
   }
 }
+
+// SCROLLBAR
+::-webkit-scrollbar {
+  width: .8rem;
+  background-color: transparent;
+
+  &-thumb {
+    border-radius: .4rem;
+    background-color: rgb(195, 195, 195);
+    border: .15rem solid transparent;
+    background-clip: padding-box;
+  }
+}
