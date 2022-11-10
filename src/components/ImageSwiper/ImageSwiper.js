@@ -84,7 +84,6 @@ const ImageSwiper = props => {
                     </div>
                 )
             }
-            
         </div>
     )
 };

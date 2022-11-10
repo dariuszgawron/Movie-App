@@ -21,11 +21,6 @@ const navLinks = [
         pathname: '/tv',
         iconclass: 'bx bx-tv'
     }
-    // { 
-    //     title: 'About',
-    //     pathname: '/about',
-    //     iconclass: 'bx bx-info-circle'
-    // }
 ];
 
 const Header = () => {

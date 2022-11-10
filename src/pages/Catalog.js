@@ -5,7 +5,6 @@ import { mediaTypes } from '../api/tmdbApi';
 
 import PageHeader from "../components/PageHeader/PageHeader";
 import MediaFilter from "../components/MediaFilter/MediaFilter";
-// import MediaList from "../components/MediaList/MediaList";
 const MediaList = React.lazy(() => import("../components/MediaList/MediaList"));
 
 const Catalog = () => {

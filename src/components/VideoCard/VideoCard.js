@@ -9,11 +9,6 @@ const VideoCard = props => {
     const video = props.item;
     const iframeRef = useRef(null);
 
-    // useEffect(() => {
-    //     const iframeHeight = `${iframeRef.current.offsetWidth * 9 / 16} px`;
-    //     iframeRef.current.setAttribute('height', iframeHeight);
-    // });
-
     return (
         <div className="trailer-card">
             <iframe 

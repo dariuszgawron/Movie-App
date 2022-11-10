@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 import { mediaTypes, movieCategories, tvCategories } from '../api/tmdbApi';
 
-// import HeroSlider from '../components/HeroSlider/HeroSlider';
-// import MediaSwiper from '../components/MediaSwiper/MediaSwiper';
 const HeroSlider = React.lazy(() => import('../components/HeroSlider/HeroSlider'));
 const MediaSwiper = React.lazy(() => import('../components/MediaSwiper/MediaSwiper'));
 

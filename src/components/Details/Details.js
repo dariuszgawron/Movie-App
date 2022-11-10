@@ -5,12 +5,6 @@ import tmdbApi from "../../api/tmdbApi";
 
 import './Details.scss';
 
-// import MediaHeader from "../MediaHeader/MediaHeader";
-// import CastSwiper from "../CastSwiper/CastSwiper";
-// import ImageSwiper from "../ImageSwiper/ImageSwiper";
-// import VideoSwiper from "../VideoSwiper/VideoSwiper";
-// import MediaSwiper from "../MediaSwiper/MediaSwiper";
-// import ImageModal from "../ImageModal/ImageModal";
 const MediaHeader = React.lazy(() => import("../MediaHeader/MediaHeader"));
 const CastSwiper = React.lazy(() => import("../CastSwiper/CastSwiper"));
 const ImageSwiper = React.lazy(() => import("../ImageSwiper/ImageSwiper"));
@@ -65,7 +59,6 @@ const Details = () => {
                                         <ImageSwiper mediaId={id} mediaType={type} title={item.title || item.name} />
                                     </Suspense>
                                 </div>
-                                
                             </div>
                         </div>
 
